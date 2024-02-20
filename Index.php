@@ -1,6 +1,4 @@
-<?php
-?>
-
+<?php ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -8,7 +6,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulaire de réservation Music Vercos Festival</title>
-  <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
@@ -17,16 +14,16 @@
       <legend>Réservation</legend>
       <h3>Nombre de réservation(s) :</h3>
       <input type="number" name="nombrePlaces" id="NombrePlaces" required>
-      <h3>Réservation(s) en tarif réduit (sur présentation des pièces justificatives)</h3>
-      <input type="checkbox" name="tarifReduit" id="tarifReduit" onchange="passROption()">
+      <h3>Réservation(s) en tarif réduit</h3>
+      <input type="checkbox" name="tarifReduit" id="tarifReduit">
       <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
 
       <h3>Choisissez votre formule :</h3>
-      <input type="checkbox" name="passSelection" id="pass1jour" onchange="pass1Option()">
+      <input type="checkbox" name="passSelection" id="pass1jour">
       <label for="pass1jour">Pass 1 jour : 40€</label>
 
       <!-- Si case cochée, afficher le choix du jour -->
-      <section id="pass1jourDate" class="hidden">
+      <section id="pass1jourDate">
         <input type="checkbox" name="passSelection" id="choixJour1">
         <label for="choixJour1">Pass pour la journée du 01/07</label>
         <input type="checkbox" name="passSelection" id="choixJour2">
@@ -35,31 +32,28 @@
         <label for="choixJour3">Pass pour la journée du 03/07</label>
       </section>
 
-      <input type="checkbox" name="passSelection" id="pass2jours" onchange="pass2Option()">
-      <label for="pass2jours">Pass 2 jours : 70€</label>
+      <input type="checkbox" name="passSelection" id="pass2jours">
+      <label for="pass2jour">Pass 2 jours : 70€</label>
 
       <!-- Si case cochée, afficher le choix des jours -->
-      <section id="pass2joursDate" class="hidden">
+      <section id="pass2joursDate">
         <input type="checkbox" name="passSelection" id="choixJour12">
-        <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
+        <label for="choixJour1">Pass pour deux journées du 01/07 au 02/07</label>
         <input type="checkbox" name="passSelection" id="choixJour23">
-        <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
+        <label for="choixJour2">Pass pour deux journées du 02/07 au 03/07</label>
       </section>
 
-
+      <label for="pass2jours">Pass 2 jours : 70€</label>
       <input type="checkbox" name="passSelection" id="pass3jours">
       <label for="pass3jours">Pass 3 jours : 100€</label>
-
-
       <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
-      <section id="tarifReduitChoix" class="hidden">
-        <input type="checkbox" name="passSelection" id="pass1jourReduit">
-        <label for="pass1jour">Pass 1 jour : 25€</label>
-        <input type="checkbox" name="passSelection" id="pass2joursReduit">
-        <label for="pass2jours">Pass 2 jours : 50€</label>
-        <input type="checkbox" name="passSelection" id="pass3joursReduit">
-        <label for="pass3jours">Pass 3 jours : 65€</label>
-      </section>
+      <input type="checkbox" name="passSelection" id="pass1jour">
+      <label for="pass1jour">Pass 1 jour : 25€</label>
+      <input type="checkbox" name="passSelection" id="pass2jours">
+      <label for="pass2jours">Pass 2 jours : 50€</label>
+      <input type="checkbox" name="passSelection" id="pass3jours">
+      <label for="pass3jours">Pass 3 jours : 65€</label>
+
       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
 
       <p class="bouton" onclick="suivant('option')">Suivant</p>
@@ -87,11 +81,11 @@
       <label for="van3Nuits">Pour les 3 nuits (12€)</label>
 
       <h3>Venez-vous avec des enfants ?</h3>
-      <input type="checkbox" name="enfantsOui" id="enfantO" onchange="enfantOption()"><label for="enfantsOui">Oui</label>
-      <input type="checkbox" name="enfantsNon" onchange="enfantOption()"><label for="enfantsNon" id="enfantN">Non</label>
+      <input type="checkbox" name="enfantsOui"><label for="enfantsOui">Oui</label>
+      <input type="checkbox" name="enfantsNon"><label for="enfantsNon">Non</label>
 
       <!-- Si oui, afficher : -->
-      <section id="optionEnfant" class="hidden">
+      <section>
         <h4>Voulez-vous louer un casque antibruit pour enfants* (2€ / casque) ?</h4>
         <label for="nombreCasquesEnfants">Nombre de casques souhaités :</label>
         <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants">
@@ -121,6 +115,6 @@
     </fieldset>
   </form>
 </body>
-<script src="./JavaScript/animationQuestion.js"></script>
 
 </html>
+<?php ?>
