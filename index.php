@@ -9,11 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire de réservation Music Vercos Festival</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="./javascript/modal.js" defer></script>
 </head>
 
 <body>
-    <form action="traitement.php" id="inscription" method="POST">
-        <fieldset id="reservation">
+    <form action="sources/traitement.php" id="inscription" method="POST">
+        <fieldset id="reservation" style="display:block">
             <legend>Réservation</legend>
             <h3>Nombre de réservation(s) :</h3>
             <input type="number" name="nombrePlaces" id="NombrePlaces" required>
@@ -26,7 +27,7 @@
             <label for="pass1jour">Pass 1 jour : 40€</label>
 
             <!-- Si case cochée, afficher le choix du jour -->
-            <section id="pass1jourDate">
+            <section id="pass1jourDate" class="displayNone displayBlock">
                 <input type="checkbox" name="passSelection" id="choixJour1">
                 <label for="choixJour1">Pass pour la journée du 01/07</label>
                 <input type="checkbox" name="passSelection" id="choixJour2">
@@ -39,30 +40,65 @@
             <label for="pass2jours">Pass 2 jours : 70€</label>
 
             <!-- Si case cochée, afficher le choix des jours -->
-            <section id="pass2joursDate">
+            <section id="pass2joursDate" class="displayNone displayBlock">
                 <input type="checkbox" name="passSelection" id="choixJour12">
-                <label for="choixJour1">Pass pour deux journées du 01/07 au 02/07</label>
+                <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
                 <input type="checkbox" name="passSelection" id="choixJour23">
-                <label for="choixJour2">Pass pour deux journées du 02/07 au 03/07</label>
+                <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
             </section>
 
             <input type="checkbox" name="passSelection" id="pass3jours">
             <label for="pass3jours">Pass 3 jours : 100€</label>
 
+            <section id="PassTarifsReduits" class="displayNone displayBlock">
+                <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
+                <input type="checkbox" name="passSelection" id="pass1jourReduit">
+                <label for="pass1jour">Pass 1 jour : 25€</label>
 
-            <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
-            <input type="checkbox" name="passSelection" id="pass1jour">
-            <label for="pass1jour">Pass 1 jour : 25€</label>
-            <input type="checkbox" name="passSelection" id="pass2jours">
-            <label for="pass2jours">Pass 2 jours : 50€</label>
-            <input type="checkbox" name="passSelection" id="pass3jours">
-            <label for="pass3jours">Pass 3 jours : 65€</label>
+
+                <input type="checkbox" name="passSelection" id="pass2joursReduit">
+                <label for="pass2jours">Pass 2 jours : 50€</label>
+                <input type="checkbox" name="passSelection" id="pass3joursReduit">
+                <label for="pass3jours">Pass 3 jours : 65€</label>
+            </section>
 
             <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
+            <input type="checkbox" name="passSelection" id="passGroupe">
+            <label for="passGroupe">Pass Groupe 5 personnes : 150€ / jour</label>
 
-            <p class="bouton" onclick="suivant('option')">Suivant</p>
+            <section id="passGroupeChoisi" class="displayNone displayBlock">
+                <!-- tarifs groupe selon nombres de jours: à n'afficher que si tarif groupe est sélectionné -->
+                <input type="checkbox" name="passSelection" id="passGroupe1jour">
+                <label for="passGroupe1jour">Pass Groupe une journée : 150€</label>
+
+                <section id="passGroupe1jourDate" class="displayNone displayBlock">
+                    <input type="checkbox" name="passSelection" id="choixGroupeJour1">
+                    <label for="choixGroupeJour1">Pass pour la journée du 01/07</label>
+                    <input type="checkbox" name="passSelection" id="choixGroupeJour2">
+                    <label for="choixGroupeJour2">Pass pour la journée du 02/07</label>
+                    <input type="checkbox" name="passSelection" id="choixGroupeJour3">
+                    <label for="choixGroupeJour3">Pass pour la journée du 03/07</label>
+                </section>
+
+                <input type="checkbox" name="passSelection" id="passGroupe2jour">
+                <label for="passGroupe2jours">Pass Groupe 2 jours : 300€</label>
+
+                <section id="passGroupe2joursDate" class="displayNone displayBlock">
+                    <input type="checkbox" name="passSelection" id="choixGroupeJour12">
+                    <label for="choixGroupeJour12">Pass pour deux journées du 01/07 au 02/07</label>
+                    <input type="checkbox" name="passSelection" id="choixGroupeJour23">
+                    <label for="choixGroupeJour23">Pass pour deux journées du 02/07 au 03/07</label>
+                </section>
+
+                <input type="checkbox" name="passSelection" id="passGroupe3jour">
+                <label for="passGroupe3jours">Pass Groupe 3 jours : 450€</label>
+            </section>
+            <div id="boutonSuivant" onclick="nextOption()">
+                <p class="bouton">Suivant</p>
+            </div>
+
         </fieldset>
-        <fieldset id="options">
+        <fieldset id="options" style="display:none">
             <legend>Options</legend>
             <h3>Réserver un emplacement de tente : </h3>
             <input type="checkbox" id="tenteNuit1" name="tenteNuit1">
@@ -100,9 +136,12 @@
             <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
             <input type="number" name="NombreLugesEte" id="NombreLugesEte">
 
-            <p class="bouton" onclick="suivant('coordonnees')">Suivant</p>
+            <div id="boutonCoordonnees" onclick="nextCoordonnees()">
+                <p class="bouton">Suivant</p>
+            </div>
+
         </fieldset>
-        <fieldset id="coordonnees">
+        <fieldset id="coordonnees" style="display:none">
             <legend>Coordonnées</legend>
             <label for="nom">Nom :</label>
             <input type="text" name="nom" id="nom" required>
