@@ -5,6 +5,7 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulaire de réservation Music Vercos Festival</title>
@@ -14,6 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
   <!-- Typographie -->
+   <script src="./javascript/modal.js" defer></script>
+
 </head>
 <header></header>
 <div class="bandeau">
@@ -23,9 +26,9 @@
 
 
 
-<body>
-  <form action="traitement.php" id="inscription" method="POST">
-    <fieldset id="reservation">
+<body>      
+  <form action="sources/traitement.php" id="inscription" method="POST">
+    <fieldset id="reservation" style="display:block">
       <legend>Réservation</legend>
       <h3>Nombre de réservation(s) :</h3>
       <input type="number" name="nombrePlaces" id="NombrePlaces" required>
@@ -72,11 +75,42 @@
         <input type="checkbox" name="passSelection" id="pass3joursReduit">
         <label for="pass3jours">Pass 3 jours : 65€</label>
       </section>
-      <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
+       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
+            <input type="checkbox" name="passSelection" id="passGroupe">
+            <label for="passGroupe">Pass Groupe 5 personnes : 150€ / jour</label>
 
-      <p class="bouton" onclick="suivant('option')">Suivant</p>
+            <section id="passGroupeChoisi" class="hidden">
+                <!-- tarifs groupe selon nombres de jours: à n'afficher que si tarif groupe est sélectionné -->
+                <input type="checkbox" name="passSelection" id="passGroupe1jour">
+                <label for="passGroupe1jour">Pass Groupe une journée : 150€</label>
+
+                <section id="passGroupe1jourDate" class="displayNone displayBlock">
+                    <input type="checkbox" name="passSelection" id="choixGroupeJour1">
+                    <label for="choixGroupeJour1">Pass pour la journée du 01/07</label>
+                    <input type="checkbox" name="passSelection" id="choixGroupeJour2">
+                    <label for="choixGroupeJour2">Pass pour la journée du 02/07</label>
+                    <input type="checkbox" name="passSelection" id="choixGroupeJour3">
+                    <label for="choixGroupeJour3">Pass pour la journée du 03/07</label>
+                </section>
+
+                <input type="checkbox" name="passSelection" id="passGroupe2jour">
+                <label for="passGroupe2jours">Pass Groupe 2 jours : 300€</label>
+
+                <section id="passGroupe2joursDate" class="displayNone displayBlock">
+                    <input type="checkbox" name="passSelection" id="choixGroupeJour12">
+                    <label for="choixGroupeJour12">Pass pour deux journées du 01/07 au 02/07</label>
+                    <input type="checkbox" name="passSelection" id="choixGroupeJour23">
+                    <label for="choixGroupeJour23">Pass pour deux journées du 02/07 au 03/07</label>
+                </section>
+
+                <input type="checkbox" name="passSelection" id="passGroupe3jour">
+                <label for="passGroupe3jours">Pass Groupe 3 jours : 450€</label>
+            </section>
+            <div id="boutonSuivant" onclick="nextOption()">
+                <p class="bouton">Suivant</p>
+            </div>
     </fieldset>
-    <fieldset id="options">
+    <fieldset id="options" style="display:none">
       <legend>Options</legend>
       <h3>Réserver un emplacement de tente : </h3>
       <input type="checkbox" id="tenteNuit1" name="tenteNuit1">
@@ -114,9 +148,11 @@
       <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
       <input type="number" name="NombreLugesEte" id="NombreLugesEte">
 
-      <p class="bouton" onclick="suivant('coordonnees')">Suivant</p>
+       <div id="boutonCoordonnees" onclick="nextCoordonnees()">
+                <p class="bouton">Suivant</p>
+            </div>
     </fieldset>
-    <fieldset id="coordonnees">
+    <fieldset id="coordonnees" style="display:none">
       <legend>Coordonnées</legend>
       <label for="nom">Nom :</label>
       <input type="text" name="nom" id="nom" required>
@@ -132,6 +168,7 @@
       <input type="submit" name="soumission" class="bouton" value="Réserver">
     </fieldset>
   </form>
+
 </body>
 <script src="./JavaScript/animationQuestion.js"></script>
 

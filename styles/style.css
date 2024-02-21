@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     background: linear-gradient(180deg, rgba(74, 137, 159, 1) 0%, rgba(74, 137, 159, 1) 23%, rgba(230, 94, 109, 1) 53%, rgba(231, 126, 87, 1) 70%, rgba(222, 231, 130, 1) 95%);
@@ -51,4 +52,5 @@ legend {
     height: 90px;
     width: auto;
     margin-left: 10px;
+
 }
