@@ -15,18 +15,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
   <!-- Typographie -->
-   <script src="./javascript/modal.js" defer></script>
+  <script src="./javascript/modal.js" defer></script>
 
 </head>
-<header></header>
-<div class="bandeau">
-  <img class="logo" src="./Medias/logoVercors.png">
-</div>
+<header>
+  <div class="bandeau">
+    <img class="logo" src="./Medias/logoVercors.png">
+  </div>
+</header>
 
 
 
 
-<body>      
+<body>
   <form action="sources/traitement.php" id="inscription" method="POST">
     <fieldset id="reservation" style="display:block">
       <legend>Réservation</legend>
@@ -75,40 +76,40 @@
         <input type="checkbox" name="passSelection" id="pass3joursReduit">
         <label for="pass3jours">Pass 3 jours : 65€</label>
       </section>
-       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
-            <input type="checkbox" name="passSelection" id="passGroupe">
-            <label for="passGroupe">Pass Groupe 5 personnes : 150€ / jour</label>
+      <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
+      <input type="checkbox" name="passSelection" id="passGroupe">
+      <label for="passGroupe">Pass Groupe 5 personnes : 150€ / jour</label>
 
-            <section id="passGroupeChoisi" class="hidden">
-                <!-- tarifs groupe selon nombres de jours: à n'afficher que si tarif groupe est sélectionné -->
-                <input type="checkbox" name="passSelection" id="passGroupe1jour">
-                <label for="passGroupe1jour">Pass Groupe une journée : 150€</label>
+      <section id="passGroupeChoisi" class="hidden">
+        <!-- tarifs groupe selon nombres de jours: à n'afficher que si tarif groupe est sélectionné -->
+        <input type="checkbox" name="passSelection" id="passGroupe1jour">
+        <label for="passGroupe1jour">Pass Groupe une journée : 150€</label>
 
-                <section id="passGroupe1jourDate" class="displayNone displayBlock">
-                    <input type="checkbox" name="passSelection" id="choixGroupeJour1">
-                    <label for="choixGroupeJour1">Pass pour la journée du 01/07</label>
-                    <input type="checkbox" name="passSelection" id="choixGroupeJour2">
-                    <label for="choixGroupeJour2">Pass pour la journée du 02/07</label>
-                    <input type="checkbox" name="passSelection" id="choixGroupeJour3">
-                    <label for="choixGroupeJour3">Pass pour la journée du 03/07</label>
-                </section>
+        <section id="passGroupe1jourDate" class="displayNone displayBlock">
+          <input type="checkbox" name="passSelection" id="choixGroupeJour1">
+          <label for="choixGroupeJour1">Pass pour la journée du 01/07</label>
+          <input type="checkbox" name="passSelection" id="choixGroupeJour2">
+          <label for="choixGroupeJour2">Pass pour la journée du 02/07</label>
+          <input type="checkbox" name="passSelection" id="choixGroupeJour3">
+          <label for="choixGroupeJour3">Pass pour la journée du 03/07</label>
+        </section>
 
-                <input type="checkbox" name="passSelection" id="passGroupe2jour">
-                <label for="passGroupe2jours">Pass Groupe 2 jours : 300€</label>
+        <input type="checkbox" name="passSelection" id="passGroupe2jour">
+        <label for="passGroupe2jours">Pass Groupe 2 jours : 300€</label>
 
-                <section id="passGroupe2joursDate" class="displayNone displayBlock">
-                    <input type="checkbox" name="passSelection" id="choixGroupeJour12">
-                    <label for="choixGroupeJour12">Pass pour deux journées du 01/07 au 02/07</label>
-                    <input type="checkbox" name="passSelection" id="choixGroupeJour23">
-                    <label for="choixGroupeJour23">Pass pour deux journées du 02/07 au 03/07</label>
-                </section>
+        <section id="passGroupe2joursDate" class="displayNone displayBlock">
+          <input type="checkbox" name="passSelection" id="choixGroupeJour12">
+          <label for="choixGroupeJour12">Pass pour deux journées du 01/07 au 02/07</label>
+          <input type="checkbox" name="passSelection" id="choixGroupeJour23">
+          <label for="choixGroupeJour23">Pass pour deux journées du 02/07 au 03/07</label>
+        </section>
 
-                <input type="checkbox" name="passSelection" id="passGroupe3jour">
-                <label for="passGroupe3jours">Pass Groupe 3 jours : 450€</label>
-            </section>
-            <div id="boutonSuivant" onclick="nextOption()">
-                <p class="bouton">Suivant</p>
-            </div>
+        <input type="checkbox" name="passSelection" id="passGroupe3jour">
+        <label for="passGroupe3jours">Pass Groupe 3 jours : 450€</label>
+      </section>
+      <div id="boutonSuivant" onclick="nextOption()">
+        <p class="bouton">Suivant</p>
+      </div>
     </fieldset>
     <fieldset id="options" style="display:none">
       <legend>Options</legend>
@@ -148,9 +149,9 @@
       <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
       <input type="number" name="NombreLugesEte" id="NombreLugesEte">
 
-       <div id="boutonCoordonnees" onclick="nextCoordonnees()">
-                <p class="bouton">Suivant</p>
-            </div>
+      <div id="boutonCoordonnees" onclick="nextCoordonnees()">
+        <p class="bouton">Suivant</p>
+      </div>
     </fieldset>
     <fieldset id="coordonnees" style="display:none">
       <legend>Coordonnées</legend>
