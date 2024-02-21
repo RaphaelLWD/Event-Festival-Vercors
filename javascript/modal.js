@@ -1,27 +1,23 @@
-/**
- * [afficherChoix Permet d'afficher le contenu des choix disponibles si la case est cochée]
- *
- * @return  {[Boolean]}  [return Retourne true si la cas est cochée, false sinon]
- */
-// Mes sections
-let reservation = document.querySelector('#reservation');
-let option = document.querySelector('#options');
-let coordonnees = document.querySelector('#coordonnees');
-// Mes boutons d'action
-let suivantOption = document.querySelector('#boutonSuivant');
-let suivantCoordonnees = document.querySelector('#boutonCoordonnees');
-let afficher = TRUE;
-suivantOption.addEventListener("click", suivant);
-suivantCoordonnees.addEventListener("click", suivant);
+console.log("hello");
+// let suivantOption = document.querySelector('.boutonSuivant');
+// let suivantCoordonnees = document.querySelector('.boutonCoordonnees');
+// suivantOption.addEventListener('click', nextOption());
+// suivantCoordonnees.addEventListener('click', nextCoordonnees());
+let formulaireReservation = document.querySelector('#reservation');
+let formulaireOption = document.querySelector('#options');
+let formulaireCoordonnees = document.querySelector('#coordonnees');
 
-function afficherUniquementReservation() {
-    if (reservation ==  ) {
+function nextOption() {
 
-    }
-    reservation.classList.remove('displayNone');
-    option.classList.add('displayNone');
-    coordonnees.classList.add('displayNone');
+    formulaireReservation.style.display = 'none';
+    formulaireOption.style.display = 'block';
+    formulaireCoordonnees.style.display = 'none';
 }
-function suivant() {
 
+function nextCoordonnees() {
+
+    formulaireReservation.style.display = 'none';
+    formulaireOption.style.display = 'none';
+    formulaireCoordonnees.style.display = 'block';
 }
+

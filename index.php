@@ -9,11 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire de réservation Music Vercos Festival</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="./javascript/modal.js" defer></script>
 </head>
 
 <body>
-    <form action="traitement.php" id="inscription" method="POST">
-        <fieldset id="reservation">
+    <form action="sources/traitement.php" id="inscription" method="POST">
+        <fieldset id="reservation" style="display:block">
             <legend>Réservation</legend>
             <h3>Nombre de réservation(s) :</h3>
             <input type="number" name="nombrePlaces" id="NombrePlaces" required>
@@ -92,10 +93,12 @@
                 <input type="checkbox" name="passSelection" id="passGroupe3jour">
                 <label for="passGroupe3jours">Pass Groupe 3 jours : 450€</label>
             </section>
+            <div id="boutonSuivant" onclick="nextOption()">
+                <p class="bouton">Suivant</p>
+            </div>
 
-            <p id="boutonSuivant" class="bouton" onclick="suivant('option')">Suivant</p>
         </fieldset>
-        <fieldset id="options">
+        <fieldset id="options" style="display:none">
             <legend>Options</legend>
             <h3>Réserver un emplacement de tente : </h3>
             <input type="checkbox" id="tenteNuit1" name="tenteNuit1">
@@ -133,9 +136,12 @@
             <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
             <input type="number" name="NombreLugesEte" id="NombreLugesEte">
 
-            <p id="boutonCoordonnees" class="bouton" onclick="suivant('coordonnees')">Suivant</p>
+            <div id="boutonCoordonnees" onclick="nextCoordonnees()">
+                <p class="bouton">Suivant</p>
+            </div>
+
         </fieldset>
-        <fieldset id="coordonnees">
+        <fieldset id="coordonnees" style="display:none">
             <legend>Coordonnées</legend>
             <label for="nom">Nom :</label>
             <input type="text" name="nom" id="nom" required>
