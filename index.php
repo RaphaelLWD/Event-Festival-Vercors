@@ -22,10 +22,11 @@ if (isset($_GET['erreur'])) {
   <script src="./javascript/modal.js" defer></script>
 
 </head>
-<header></header>
-<div class="bandeau">
-  <img class="logo" src="./Medias/logoVercors.png">
-</div>
+<header>
+  <div class="bandeau">
+    <img class="logo" src="./Medias/logoVercors.png">
+  </div>
+</header>
 
 
 
@@ -110,12 +111,14 @@ if (isset($_GET['erreur'])) {
         <input type="checkbox" name="passSelection" id="passGroupe3jour">
         <label for="passGroupe3jours">Pass Groupe 3 jours : 450€</label>
       </section>
+
       <div id="boutonSuivant" type="submit" name="submit1" onclick="nextFieldset('options')">
         <p class="bouton">Suivant</p>
       </div>
       <?php
 
       ?>
+
     </fieldset>
     <fieldset id="options" style="display:none">
       <legend>Options</legend>
@@ -154,13 +157,14 @@ if (isset($_GET['erreur'])) {
       <h3>Profitez de descentes en luge d'été à tarifs avantageux !</h3>
       <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
       <input type="number" name="NombreLugesEte" id="NombreLugesEte">
-
+      
       <div id="boutonCoordonnees" type="submit" name="submit2" onclick="nextFieldset('coordonnees')">
         <p class="bouton">Suivant</p>
       </div>
       <?php
 
       ?>
+
     </fieldset>
     <fieldset id="coordonnees" style="display:none">
       <legend>Coordonnées</legend>
