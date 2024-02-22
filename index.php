@@ -19,6 +19,7 @@ if (isset($_GET['erreur'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
   <!-- Typographie -->
+  <link rel="shortcut icon" type="image/png" href="Medias/favicon.ico" />
   <script src="./javascript/modal.js" defer></script>
 
 </head>
@@ -42,11 +43,12 @@ if (isset($_GET['erreur'])) {
       <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
 
       <h3>Choisissez votre formule :</h3>
-      <input type="checkbox" name="passSelection" id="pass1jour" onchange="pass1Option()">
+      <input type="checkbox" name="passSelection" class="formule" id="pass1jour" onchange="pass1Option()">
       <label for="pass1jour">Pass 1 jour : 40€</label>
 
       <!-- Si case cochée, afficher le choix du jour -->
       <section id="pass1jourDate" class="hidden">
+
         <input type="checkbox" name="choixJour" id="choixJour1">
         <label for="choixJour1">Pass pour la journée du 01/07</label>
         <input type="checkbox" name="choixJour" id="choixJour2">
@@ -55,19 +57,21 @@ if (isset($_GET['erreur'])) {
         <label for="choixJour3">Pass pour la journée du 03/07</label>
       </section>
 
-      <input type="checkbox" name="passSelection" id="pass2jours" onchange="pass2Option()">
+      <input type="checkbox" name="passSelection" class="formule" id="pass2jours" onchange="pass2Option()">
       <label for="pass2jours">Pass 2 jours : 70€</label>
 
       <!-- Si case cochée, afficher le choix des jours -->
       <section id="pass2joursDate" class="hidden">
+
         <input type="checkbox" name="choixJour" id="choixJour12">
+
         <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
         <input type="checkbox" name="choixJour2" id="choixJour23">
         <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
       </section>
 
 
-      <input type="checkbox" name="passSelection" id="pass3jours">
+      <input type="checkbox" name="passSelection" class="formule" id="pass3jours">
       <label for="pass3jours">Pass 3 jours : 100€</label>
 
 
@@ -81,12 +85,14 @@ if (isset($_GET['erreur'])) {
         <label for="pass3jours">Pass 3 jours : 65€</label>
       </section>
       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
-      <!-- <input type="checkbox" name="passGroupe" id="passGroupe">
-      <label for="passGroupe">Pass Groupe 5 personnes : 150€ / jour</label>
 
-      <section id="passGroupeChoisi" class="hidden"> -->
+      <!-- <input type="checkbox" name="passGroupe" id="passGroupe">-->
+      <!--<label for="passGroupe">Pass Groupe 5 personnes : 150€ / jour</label>-->
+
+     <!-- <section id="passGroupeChoisi" class="hidden"> -->
       <!-- tarifs groupe selon nombres de jours: à n'afficher que si tarif groupe est sélectionné -->
       <!-- <input type="checkbox" name="passGroupe1jour" id="passGroupe1jour">
+
         <label for="passGroupe1jour">Pass Groupe une journée : 150€</label>
 
         <section id="passGroupe1jourDate" class="displayNone displayBlock">
@@ -115,9 +121,6 @@ if (isset($_GET['erreur'])) {
       <div id="boutonSuivant" type="submit" name="submit1" onclick="nextFieldset('options')">
         <p class="bouton">Suivant</p>
       </div>
-      <?php
-
-      ?>
 
     </fieldset>
     <fieldset id="options" style="display:none">
@@ -179,7 +182,8 @@ if (isset($_GET['erreur'])) {
       <label for="adressePostale">Adresse Postale :</label>
       <input type="text" name="adressePostale" id="adressePostale">
 
-      <input type="submit" name="soumission" class="bouton" value="Réserver">
+
+      <input type="submit" name="soumission" class="bouton reserver" value="Réserver">
 
     </fieldset>
 
@@ -187,5 +191,6 @@ if (isset($_GET['erreur'])) {
 
 </body>
 <script src="./JavaScript/animationQuestion.js"></script>
+<script src="./JavaScript/verificationCheckbox.js"></script>
 
 </html>
