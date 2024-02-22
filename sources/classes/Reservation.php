@@ -17,7 +17,7 @@ class Reservation
     private $_tel;
     private $_adresse;
 
-    public function __construct(string $nombreReservation, string $formule, string $date, string $tarifReduit, string $tente, string $camion, string $enfants, string $casques, string $luge, string $nom, string $prenom, string $mail, string $tel, int|string $adresse, string $id = "à créer")
+    public function __construct(string $nombreReservation, bool $formule, bool $date, bool $tarifReduit, bool $tente, bool $camion, bool $enfants, string $casques, string $luge, string $nom, string $prenom, string $mail, string $tel, int|string $adresse, string $id = "à créer")
     {
         $this->setId($id);
         $this->setNombreReservation($nombreReservation);
@@ -58,56 +58,56 @@ class Reservation
         $this->_nombreReservation = $nombreReservation;
     }
 
-    public function getTarifReduit(): string
+    public function getTarifReduit(): bool
     {
         return $this->_tarifReduit;
     }
-    public function setTarifReduit(string $tarifReduit): void
+    public function setTarifReduit(bool $tarifReduit): void
     {
         $this->_tarifReduit = $tarifReduit;
     }
 
-    public function getFormule(): string
+    public function getFormule(): bool
     {
         return $this->_formule;
     }
-    public function setFormule(string $formule): void
+    public function setFormule(bool $formule): void
     {
         $this->_formule = $formule;
     }
 
-    public function getDate(): string
+    public function getDate(): bool
     {
         return $this->_date;
     }
-    public function setDate(string $date): void
+    public function setDate(bool $date): void
     {
         $this->_date = $date;
     }
 
-    public function getTente(): string
+    public function getTente(): bool
     {
         return $this->_tente;
     }
-    public function setTente(string $tente): void
+    public function setTente(bool $tente): void
     {
         $this->_tente = $tente;
     }
 
-    public function getCamion(): string
+    public function getCamion(): bool
     {
         return $this->_camion;
     }
-    public function setCamion(string $camion): void
+    public function setCamion(bool $camion): void
     {
         $this->_camion = $camion;
     }
 
-    public function getEnfants(): string
+    public function getEnfants(): bool
     {
         return $this->_enfants;
     }
-    public function setEnfants(string $enfants): void
+    public function setEnfants(bool $enfants): void
     {
         $this->_enfants = $enfants;
     }
@@ -194,5 +194,28 @@ class Reservation
             "casques" => $this->_casques,
             "luge" => $this->_luge,
         ];
+    }
+    public function creerNouvelleId(): int
+    {
+        $datareservation = new Datareservation();
+        $reservations = $datareservation->getTicketR();
+
+        $IDs = [];
+
+        foreach ($reservations as $reservation) {
+            $IDs[] = $reservation->getId();
+        }
+
+        $i = 1;
+        $unique = false;
+        while ($unique === false) {
+            if (in_array($i, $IDs)) {
+                $i++;
+            } else {
+                $unique = true;
+            }
+        }
+
+        return $i;
     }
 }
