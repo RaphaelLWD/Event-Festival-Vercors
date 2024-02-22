@@ -1,8 +1,12 @@
 <?php
 
 define('ERREUR_RESERVATION', 1);
-define('ERREUR_CHAMP_VIDEUN', 2);
+define('ERREUR_CHAMP_VIDE_RESERVATION', 2);
 define('ERREUR_CHAMP_VIDETROIS', 6);
 define('ERREUR_MAIL', 3);
 define('ERREUR_TELEPHONE', 4);
 define('ERREUR_UNCHECKED', 5);
+define('ERREUR_FORMULE', 7);
+define('ERREUR_TARIF_REDUIT', 8);
+define('ERREUR_DATE', 9);
+define('ERREUR_TARIF_REDUIT_FORMULE', 10);
