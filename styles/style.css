@@ -10,15 +10,16 @@ p {
 }
 
 form {
-    width: 80%;
-    margin: 0 10%;
+    width: 60%;
+    margin: 0 20%;
 }
 
 fieldset {
-    margin: 20px 0;
+    margin: 50px 0;
     border-radius: 30px;
     padding: 20px;
-    border-color: rgba(222, 231, 130, 1);
+    background-color: rgb(239, 239, 239);
+    border-color: rgba(222, 231, 130, 0);
     border-style: solid;
     box-shadow: 0px 1px 10px rgb(91, 91, 91);
     font-family: "PT Sans Narrow", sans-serif;
@@ -54,21 +55,70 @@ legend {
     margin-left: 10px;
 
 }
-#message, .message {
-  display:none;
-  padding: 10px 15px;
-  border-radius: 10px;
-  margin-bottom: 15px;
+
+#message,
+.message {
+    display: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
+
 .succes {
-  display:block !important;
-  color: green;
-  background-color: #acffac;
-  border:3px solid green;
+    display: block !important;
+    color: green;
+    background-color: #acffac;
+    border: 3px solid green;
 }
+
 .echec {
-  display:block !important;
-  color: red;
-  background-color: #ffacac;
-  border: 3px solid red;
+    display: block !important;
+    color: red;
+    background-color: #ffacac;
+    border: 3px solid red;
+}
+
+.bouton {
+    margin: 5px 15px;
+}
+
+#boutonSuivant {
+    display: flex;
+    margin-left: 80%;
+    width: fit-content;
+    border-radius: 15px;
+    background-color: #ffacac;
+}
+
+#boutonSuivant:hover {
+    cursor: pointer;
+}
+
+#boutonCoordonnees {
+    display: flex;
+    margin-left: 80%;
+    width: fit-content;
+    border-radius: 15px;
+    background-color: #ffacac;
+}
+
+#boutonCoordonnees:hover {
+    cursor: pointer;
+}
+
+#reserver {
+    display: flex;
+    margin-left: 80%;
+    width: fit-content;
+    border-radius: 15px;
+    background-color: #ffacac;
+}
+
+#reserver:hover {
+    cursor: pointer;
+}
+
+#coordonnees {
+    display: flex;
+    flex-direction: column;
 }
