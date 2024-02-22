@@ -1,4 +1,8 @@
 <?php
+$code_erreur = null;
+if (isset($_GET['erreur'])) {
+  $code_erreur = (int) $_GET['erreur'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
   <!-- Typographie -->
-   <script src="./javascript/modal.js" defer></script>
+  <script src="./javascript/modal.js" defer></script>
 
 </head>
 <header></header>
@@ -26,12 +30,12 @@
 
 
 
-<body>      
+<body>
   <form action="sources/traitement.php" id="inscription" method="POST">
     <fieldset id="reservation" style="display:block">
       <legend>Réservation</legend>
       <h3>Nombre de réservation(s) :</h3>
-      <input type="number" name="nombrePlaces" id="NombrePlaces" required>
+      <input type="number" name="nombrePlaces" id="NombrePlaces" min="1">
       <h3>Réservation(s) en tarif réduit (sur présentation des pièces justificatives)</h3>
       <input type="checkbox" name="tarifReduit" id="tarifReduit" onchange="passROption()">
       <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
@@ -75,40 +79,43 @@
         <input type="checkbox" name="passSelection" id="pass3joursReduit">
         <label for="pass3jours">Pass 3 jours : 65€</label>
       </section>
-       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
-            <input type="checkbox" name="passSelection" id="passGroupe">
-            <label for="passGroupe">Pass Groupe 5 personnes : 150€ / jour</label>
+      <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
+      <input type="checkbox" name="passSelection" id="passGroupe">
+      <label for="passGroupe">Pass Groupe 5 personnes : 150€ / jour</label>
 
-            <section id="passGroupeChoisi" class="hidden">
-                <!-- tarifs groupe selon nombres de jours: à n'afficher que si tarif groupe est sélectionné -->
-                <input type="checkbox" name="passSelection" id="passGroupe1jour">
-                <label for="passGroupe1jour">Pass Groupe une journée : 150€</label>
+      <section id="passGroupeChoisi" class="hidden">
+        <!-- tarifs groupe selon nombres de jours: à n'afficher que si tarif groupe est sélectionné -->
+        <input type="checkbox" name="passSelection" id="passGroupe1jour">
+        <label for="passGroupe1jour">Pass Groupe une journée : 150€</label>
 
-                <section id="passGroupe1jourDate" class="displayNone displayBlock">
-                    <input type="checkbox" name="passSelection" id="choixGroupeJour1">
-                    <label for="choixGroupeJour1">Pass pour la journée du 01/07</label>
-                    <input type="checkbox" name="passSelection" id="choixGroupeJour2">
-                    <label for="choixGroupeJour2">Pass pour la journée du 02/07</label>
-                    <input type="checkbox" name="passSelection" id="choixGroupeJour3">
-                    <label for="choixGroupeJour3">Pass pour la journée du 03/07</label>
-                </section>
+        <section id="passGroupe1jourDate" class="displayNone displayBlock">
+          <input type="checkbox" name="passSelection" id="choixGroupeJour1">
+          <label for="choixGroupeJour1">Pass pour la journée du 01/07</label>
+          <input type="checkbox" name="passSelection" id="choixGroupeJour2">
+          <label for="choixGroupeJour2">Pass pour la journée du 02/07</label>
+          <input type="checkbox" name="passSelection" id="choixGroupeJour3">
+          <label for="choixGroupeJour3">Pass pour la journée du 03/07</label>
+        </section>
 
-                <input type="checkbox" name="passSelection" id="passGroupe2jour">
-                <label for="passGroupe2jours">Pass Groupe 2 jours : 300€</label>
+        <input type="checkbox" name="passSelection" id="passGroupe2jour">
+        <label for="passGroupe2jours">Pass Groupe 2 jours : 300€</label>
 
-                <section id="passGroupe2joursDate" class="displayNone displayBlock">
-                    <input type="checkbox" name="passSelection" id="choixGroupeJour12">
-                    <label for="choixGroupeJour12">Pass pour deux journées du 01/07 au 02/07</label>
-                    <input type="checkbox" name="passSelection" id="choixGroupeJour23">
-                    <label for="choixGroupeJour23">Pass pour deux journées du 02/07 au 03/07</label>
-                </section>
+        <section id="passGroupe2joursDate" class="displayNone displayBlock">
+          <input type="checkbox" name="passSelection" id="choixGroupeJour12">
+          <label for="choixGroupeJour12">Pass pour deux journées du 01/07 au 02/07</label>
+          <input type="checkbox" name="passSelection" id="choixGroupeJour23">
+          <label for="choixGroupeJour23">Pass pour deux journées du 02/07 au 03/07</label>
+        </section>
 
-                <input type="checkbox" name="passSelection" id="passGroupe3jour">
-                <label for="passGroupe3jours">Pass Groupe 3 jours : 450€</label>
-            </section>
-            <div id="boutonSuivant" onclick="nextOption()">
-                <p class="bouton">Suivant</p>
-            </div>
+        <input type="checkbox" name="passSelection" id="passGroupe3jour">
+        <label for="passGroupe3jours">Pass Groupe 3 jours : 450€</label>
+      </section>
+      <div id="boutonSuivant" type="submit" name="submit1" onclick="nextFieldset('options')">
+        <p class="bouton">Suivant</p>
+      </div>
+      <?php
+
+      ?>
     </fieldset>
     <fieldset id="options" style="display:none">
       <legend>Options</legend>
@@ -140,7 +147,7 @@
       <section id="optionEnfant" class="hidden">
         <h4>Voulez-vous louer un casque antibruit pour enfants* (2€ / casque) ?</h4>
         <label for="nombreCasquesEnfants">Nombre de casques souhaités :</label>
-        <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants">
+        <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants" min="0">
         <p>*Dans la limite des stocks disponibles.</p>
       </section>
 
@@ -148,25 +155,36 @@
       <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
       <input type="number" name="NombreLugesEte" id="NombreLugesEte">
 
-       <div id="boutonCoordonnees" onclick="nextCoordonnees()">
-                <p class="bouton">Suivant</p>
-            </div>
+      <div id="boutonCoordonnees" type="submit" name="submit2" onclick="nextFieldset('coordonnees')">
+        <p class="bouton">Suivant</p>
+      </div>
+      <?php
+
+      ?>
     </fieldset>
     <fieldset id="coordonnees" style="display:none">
       <legend>Coordonnées</legend>
       <label for="nom">Nom :</label>
-      <input type="text" name="nom" id="nom" required>
+      <input type="text" name="nom" id="nom">
+      <?php
+      if ($code_erreur === 2) { ?>
+        <div class="message echec">
+          Veuillez blablala.
+        </div>
+      <?php } ?>
       <label for="prenom">Prénom :</label>
-      <input type="text" name="prenom" id="prenom" required>
+      <input type="text" name="prenom" id="prenom">
       <label for="email">Email :</label>
-      <input type="email" name="email" id="email" required>
+      <input type="email" name="email" id="email">
       <label for="telephone">Téléphone :</label>
-      <input type="text" name="telephone" id="telephone" required>
+      <input type="text" name="telephone" id="telephone">
       <label for="adressePostale">Adresse Postale :</label>
-      <input type="text" name="adressePostale" id="adressePostale" required>
+      <input type="text" name="adressePostale" id="adressePostale">
 
       <input type="submit" name="soumission" class="bouton" value="Réserver">
+
     </fieldset>
+
   </form>
 
 </body>
