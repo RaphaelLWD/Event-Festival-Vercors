@@ -54,7 +54,6 @@ if (isset($_POST["tenteNuit1"]) && isset($_POST["tenteNuit2"]) && isset($_POST["
     $enfants = $_POST["enfants"];
     $casques = $_POST["nombreCasquesEnfants"];
     $luge = $_POST["NombreLugesEte"];
-
 }
 // 3) si non $variable = value = null/none
 else {

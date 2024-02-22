@@ -4,7 +4,7 @@ final class DataReservation
     private $_DataR;
     public function __construct()
     {
-        $this->_DataR = __DIR__ . "../csv/reservation.csv";
+        $this->_DataR = __DIR__ . "/../csv/reservation.csv";
     }
     //  Fonction qui enregristre le ticket dans le fichier csv //
     public function enregistrerTicketR(Reservation $reservation)

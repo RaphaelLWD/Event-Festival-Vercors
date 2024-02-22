@@ -1,5 +1,5 @@
 <?php
-require 'src/classes/Reservation.php';
+require 'sources/classes/Reservation.php';
 ?>
 
 <!DOCTYPE html>
