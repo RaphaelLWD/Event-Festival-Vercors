@@ -77,19 +77,19 @@ if (isset($_GET['erreur'])) {
 
       <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
       <section id="tarifReduitChoix" class="hidden">
-        <input type="checkbox" name="passjourReduit" id="pass1jourReduit">
+        <input type="checkbox" name="passjourReduit" id="pass1jourReduit" onchange="pass1ROption()">
         <label for="pass1jour">Pass 1 jour : 25€</label>
-        <input type="checkbox" name="passjourReduit" id="pass2joursReduit">
+        <input type="checkbox" name="passjourReduit" id="pass2joursReduit" onchange="pass2ROption()">
         <label for="pass2jours">Pass 2 jours : 50€</label>
         <input type="checkbox" name="passjourReduit" id="pass3joursReduit">
-        <label for="pass3jours">Pass 3 jours : 65€</label>
+        <label for=" pass3jours">Pass 3 jours : 65€</label>
       </section>
       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
 
       <!-- <input type="checkbox" name="passGroupe" id="passGroupe">-->
       <!--<label for="passGroupe">Pass Groupe 5 personnes : 150€ / jour</label>-->
 
-     <!-- <section id="passGroupeChoisi" class="hidden"> -->
+      <!-- <section id="passGroupeChoisi" class="hidden"> -->
       <!-- tarifs groupe selon nombres de jours: à n'afficher que si tarif groupe est sélectionné -->
       <!-- <input type="checkbox" name="passGroupe1jour" id="passGroupe1jour">
 
@@ -146,8 +146,8 @@ if (isset($_GET['erreur'])) {
       <label for="van3Nuits">Pour les 3 nuits (12€)</label>
 
       <h3>Venez-vous avec des enfants ?</h3>
-      <input type="checkbox" name="enfantsOui" id="enfantO" onchange="enfantOption()"><label for="enfantsOui">Oui</label>
-      <input type="checkbox" name="enfantsNon" onchange="enfantOption()"><label for="enfantsNon" id="enfantN">Non</label>
+      <input type="checkbox" name="enfantsOui" id="enfantO" onchange="enfantOption()"><label for="enfants">Oui</label>
+      <input type="checkbox" name="enfants" onchange="enfantOption()"><label for="enfantsNon" id="enfantN">Non</label>
 
       <!-- Si oui, afficher : -->
       <section id="optionEnfant" class="hidden">
