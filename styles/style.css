@@ -1,5 +1,5 @@
 body {
-    height: 100vh;
+    height: 120vh;
     margin: 0;
     background: linear-gradient(180deg, rgba(74, 137, 159, 1) 0%, rgba(74, 137, 159, 1) 23%, rgba(230, 94, 109, 1) 53%, rgba(231, 126, 87, 1) 70%, rgba(222, 231, 130, 1) 95%);
 }
@@ -53,4 +53,22 @@ legend {
     width: auto;
     margin-left: 10px;
 
+}
+#message, .message {
+  display:none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.succes {
+  display:block !important;
+  color: green;
+  background-color: #acffac;
+  border:3px solid green;
+}
+.echec {
+  display:block !important;
+  color: red;
+  background-color: #ffacac;
+  border: 3px solid red;
 }

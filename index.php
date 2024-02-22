@@ -1,4 +1,8 @@
 <?php
+$code_erreur = null;
+if (isset($_GET['erreur'])) {
+  $code_erreur = (int) $_GET['erreur'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +36,7 @@
     <fieldset id="reservation" style="display:block">
       <legend>Réservation</legend>
       <h3>Nombre de réservation(s) :</h3>
-      <input type="number" name="nombrePlaces" id="NombrePlaces" required>
+      <input type="number" name="nombrePlaces" id="NombrePlaces" min="1">
       <h3>Réservation(s) en tarif réduit (sur présentation des pièces justificatives)</h3>
       <input type="checkbox" name="tarifReduit" id="tarifReduit" onchange="passROption()">
       <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
@@ -107,9 +111,14 @@
         <input type="checkbox" name="passSelection" id="passGroupe3jour">
         <label for="passGroupe3jours">Pass Groupe 3 jours : 450€</label>
       </section>
-      <div id="boutonSuivant" onclick="nextOption()">
+
+      <div id="boutonSuivant" type="submit" name="submit1" onclick="nextFieldset('options')">
         <p class="bouton">Suivant</p>
       </div>
+      <?php
+
+      ?>
+
     </fieldset>
     <fieldset id="options" style="display:none">
       <legend>Options</legend>
@@ -141,33 +150,45 @@
       <section id="optionEnfant" class="hidden">
         <h4>Voulez-vous louer un casque antibruit pour enfants* (2€ / casque) ?</h4>
         <label for="nombreCasquesEnfants">Nombre de casques souhaités :</label>
-        <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants">
+        <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants" min="0">
         <p>*Dans la limite des stocks disponibles.</p>
       </section>
 
       <h3>Profitez de descentes en luge d'été à tarifs avantageux !</h3>
       <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
       <input type="number" name="NombreLugesEte" id="NombreLugesEte">
-
-      <div id="boutonCoordonnees" onclick="nextCoordonnees()">
+      
+      <div id="boutonCoordonnees" type="submit" name="submit2" onclick="nextFieldset('coordonnees')">
         <p class="bouton">Suivant</p>
       </div>
+      <?php
+
+      ?>
+
     </fieldset>
     <fieldset id="coordonnees" style="display:none">
       <legend>Coordonnées</legend>
       <label for="nom">Nom :</label>
-      <input type="text" name="nom" id="nom" required>
+      <input type="text" name="nom" id="nom">
+      <?php
+      if ($code_erreur === 2) { ?>
+        <div class="message echec">
+          Veuillez blablala.
+        </div>
+      <?php } ?>
       <label for="prenom">Prénom :</label>
-      <input type="text" name="prenom" id="prenom" required>
+      <input type="text" name="prenom" id="prenom">
       <label for="email">Email :</label>
-      <input type="email" name="email" id="email" required>
+      <input type="email" name="email" id="email">
       <label for="telephone">Téléphone :</label>
-      <input type="text" name="telephone" id="telephone" required>
+      <input type="text" name="telephone" id="telephone">
       <label for="adressePostale">Adresse Postale :</label>
-      <input type="text" name="adressePostale" id="adressePostale" required>
+      <input type="text" name="adressePostale" id="adressePostale">
 
       <input type="submit" name="soumission" class="bouton" value="Réserver">
+
     </fieldset>
+
   </form>
 
 </body>
