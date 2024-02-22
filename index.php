@@ -48,11 +48,12 @@ if (isset($_GET['erreur'])) {
 
       <!-- Si case cochée, afficher le choix du jour -->
       <section id="pass1jourDate" class="hidden">
-        <input type="checkbox" name="choixJour1" id="choixJour1">
+
+        <input type="checkbox" name="choixJour" id="choixJour1">
         <label for="choixJour1">Pass pour la journée du 01/07</label>
-        <input type="checkbox" name="choixJour1" id="choixJour2">
+        <input type="checkbox" name="choixJour" id="choixJour2">
         <label for="choixJour2">Pass pour la journée du 02/07</label>
-        <input type="checkbox" name="choixJour1" id="choixJour3">
+        <input type="checkbox" name="choixJour" id="choixJour3">
         <label for="choixJour3">Pass pour la journée du 03/07</label>
       </section>
 
@@ -61,7 +62,9 @@ if (isset($_GET['erreur'])) {
 
       <!-- Si case cochée, afficher le choix des jours -->
       <section id="pass2joursDate" class="hidden">
-        <input type="checkbox" name="choixJour2" id="choixJour12">
+
+        <input type="checkbox" name="choixJour" id="choixJour12">
+
         <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
         <input type="checkbox" name="choixJour2" id="choixJour23">
         <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
@@ -82,12 +85,14 @@ if (isset($_GET['erreur'])) {
         <label for="pass3jours">Pass 3 jours : 65€</label>
       </section>
       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
-      <input type="checkbox" name="passGroupe" id="passGroupe">
-      <label for="passGroupe">Pass Groupe 5 personnes : 150€ / jour</label>
 
-      <section id="passGroupeChoisi" class="hidden">
-        <!-- tarifs groupe selon nombres de jours: à n'afficher que si tarif groupe est sélectionné -->
-        <input type="checkbox" name="passGroupe1jour" id="passGroupe1jour">
+      <!-- <input type="checkbox" name="passGroupe" id="passGroupe">-->
+      <!--<label for="passGroupe">Pass Groupe 5 personnes : 150€ / jour</label>-->
+
+     <!-- <section id="passGroupeChoisi" class="hidden"> -->
+      <!-- tarifs groupe selon nombres de jours: à n'afficher que si tarif groupe est sélectionné -->
+      <!-- <input type="checkbox" name="passGroupe1jour" id="passGroupe1jour">
+
         <label for="passGroupe1jour">Pass Groupe une journée : 150€</label>
 
         <section id="passGroupe1jourDate" class="displayNone displayBlock">
@@ -111,7 +116,7 @@ if (isset($_GET['erreur'])) {
 
         <input type="checkbox" name="passGroupe3jour" id="passGroupe3jour">
         <label for="passGroupe3jours">Pass Groupe 3 jours : 450€</label>
-      </section>
+      </section> -->
 
       <div id="boutonSuivant" type="submit" name="submit1" onclick="nextFieldset('options')">
         <p class="bouton">Suivant</p>
@@ -168,18 +173,12 @@ if (isset($_GET['erreur'])) {
       <legend>Coordonnées</legend>
       <label for="nom">Nom :</label>
       <input type="text" name="nom" id="nom">
-      <?php
-      if ($code_erreur === 2) { ?>
-        <div class="message echec">
-          Veuillez blablala.
-        </div>
-      <?php } ?>
       <label for="prenom">Prénom :</label>
       <input type="text" name="prenom" id="prenom">
       <label for="email">Email :</label>
       <input type="email" name="email" id="email">
       <label for="telephone">Téléphone :</label>
-      <input type="text" name="telephone" id="telephone">
+      <input type="tel" name="telephone" id="telephone" maxlength="10">
       <label for="adressePostale">Adresse Postale :</label>
       <input type="text" name="adressePostale" id="adressePostale">
 
