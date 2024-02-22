@@ -177,7 +177,7 @@ if (isset($_GET['erreur'])) {
       <label for="email">Email :</label>
       <input type="email" name="email" id="email">
       <label for="telephone">Téléphone :</label>
-      <input type="text" name="telephone" id="telephone">
+      <input type="tel" name="telephone" id="telephone" maxlength="10">
       <label for="adressePostale">Adresse Postale :</label>
       <input type="text" name="adressePostale" id="adressePostale">
 
