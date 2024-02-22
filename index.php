@@ -19,6 +19,7 @@ if (isset($_GET['erreur'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
   <!-- Typographie -->
+  <link rel="shortcut icon" type="image/png" href="Medias/favicon.ico" />
   <script src="./javascript/modal.js" defer></script>
 
 </head>
@@ -115,9 +116,6 @@ if (isset($_GET['erreur'])) {
       <div id="boutonSuivant" type="submit" name="submit1" onclick="nextFieldset('options')">
         <p class="bouton">Suivant</p>
       </div>
-      <?php
-
-      ?>
 
     </fieldset>
     <fieldset id="options" style="display:none">
@@ -157,7 +155,7 @@ if (isset($_GET['erreur'])) {
       <h3>Profitez de descentes en luge d'été à tarifs avantageux !</h3>
       <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
       <input type="number" name="NombreLugesEte" id="NombreLugesEte">
-      
+
       <div id="boutonCoordonnees" type="submit" name="submit2" onclick="nextFieldset('coordonnees')">
         <p class="bouton">Suivant</p>
       </div>
@@ -185,7 +183,8 @@ if (isset($_GET['erreur'])) {
       <label for="adressePostale">Adresse Postale :</label>
       <input type="text" name="adressePostale" id="adressePostale">
 
-      <input type="submit" name="soumission" class="bouton" value="Réserver">
+
+      <input type="submit" name="soumission" class="bouton reserver" value="Réserver">
 
     </fieldset>
 
