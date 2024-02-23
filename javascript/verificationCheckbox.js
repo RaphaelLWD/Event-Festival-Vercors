@@ -1,5 +1,7 @@
 const choixFormule = document.querySelectorAll('.checkbox1'); // Comprends Pass 1 Pass 2 Pass 3 et Tarif reduit
 const choixDate = document.querySelectorAll('.checkbox2');  // Comprends date 1 date 2 date 3 date 4 et 5 
+const choixFormuleReduit = document.querySelectorAll('.checkbox3'); // Comprends les différents pass mais en reduit
+const choixDateReduit = document.querySelectorAll('.checkbox4');   // Comprends les différentes dates mais en reduit
 
 choixFormule.forEach(formule => {
     formule.addEventListener('change', function () {
@@ -23,6 +25,28 @@ choixDate.forEach(date => {
         }
     })
 })
+choixFormuleReduit.forEach(formuleReduit => {
+    formuleReduit.addEventListener('change', function () {
+        if (this.checked) {
+            choixFormuleReduit.forEach(autresFormuleReduit => {
+                if (autresFormuleReduit !== this) {
+                    autresFormuleReduit.checked = false;
+                }
+            })
+        }
+    })
+})
+choixDateReduit.forEach(dateReduit => {
+    dateReduit.addEventListener('change', function () {
+        if (this.checked) {
+            choixDateReduit.forEach(autresDateReduit => {
+                if (autresDateReduit !== this) {
+                    autresDateReduit.checked = false;
+                }
+            })
+        }
+    })
+});
 
 const choixTente = document.querySelectorAll('.tenteNuit');
 const choixVan = document.querySelectorAll('.vanNuit');

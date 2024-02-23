@@ -109,11 +109,11 @@ if (isset($_GET['erreur'])) {
       <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
       <section id="tarifReduitChoix" class="hidden">
 
-        <input type="checkbox" name="passjourReduit1" id="pass1jourReduit" class="checkbox2">
+        <input type="checkbox" name="passjourReduit1" id="pass1jourReduit" class="checkbox3">
         <label for="pass1jour">Pass 1 jour : 25€</label>
-        <input type="checkbox" name="passjourReduit2" id="pass2joursReduit" class="checkbox2">
+        <input type="checkbox" name="passjourReduit2" id="pass2joursReduit" class="checkbox3">
         <label for="pass2jours">Pass 2 jours : 50€</label>
-        <input type="checkbox" name="passjourReduit3" id="pass3joursReduit" class="checkbox2">
+        <input type="checkbox" name="passjourReduit3" id="pass3joursReduit" class="checkbox3">
         <label for="pass3jours">Pass 3 jours : 65€</label>
 
       </section>
