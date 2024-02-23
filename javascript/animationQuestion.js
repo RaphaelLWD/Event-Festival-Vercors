@@ -26,11 +26,14 @@ function pass2Option() {
 function passROption() {
   let checkboxR = document.getElementById("tarifReduit");
   let passR = document.getElementById("tarifReduitChoix");
+  let formuleNormale = document.querySelector(".colone");
 
   if (checkboxR.checked) {
     passR.style.display = "flex";
+    formuleNormale.style.opacity = "0.5";
   } else {
     passR.style.display = "none";
+    formuleNormale.style.opacity = "1";
   }
 }
 
