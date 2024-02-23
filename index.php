@@ -80,23 +80,23 @@ if (isset($_GET['erreur'])) {
           <input type="checkbox" name="passSelection1" id="pass1jour" onchange="pass1Option()" class="checkbox1">
           <label for="pass1jour">Pass 1 jour : 40€</label>
         </div>
-   
+
         <div>
           <input type="checkbox" name="passSelection2" id="pass2jours" onchange="pass2Option()" class="checkbox1">
           <label for="pass2jours">Pass 2 jours : 70€</label>
-          </div>
+        </div>
 
         <div>
           <input type="checkbox" name="passSelection3" id="pass3jours" class="checkbox1">
           <label for="pass3jours">Pass 3 jours : 100€</labe>
         </div>
-        
-         <?php
-      if ($code_erreur === 3) { ?>
-        <div class="message echec">
-          Choisir une formule.
-        </div>
-        <?php}?>
+
+        <?php
+        if ($code_erreur === 3) { ?>
+          <div class="message echec">
+            Choisir une formule.
+          </div>
+        <?php } ?>
 
       </div>
 
@@ -107,17 +107,17 @@ if (isset($_GET['erreur'])) {
         <div class="colone">
           <h3>Formules réduites :</h3>
           <div>
-            <input type="checkbox" name="passjourReduit1" id="pass1jourReduit"  class="checkbox3" onchange="pass1ROption()">
+            <input type="checkbox" name="passjourReduit1" id="pass1jourReduit" class="checkbox3" onchange="pass1ROption()">
             <label for=" pass1jour">Pass 1 jour : 25€</label>
           </div>
 
           <div>
-            <input type="checkbox" name="passjourReduit2" id="pass2joursReduit"  class="checkbox3" onchange="pass2ROption()">
+            <input type="checkbox" name="passjourReduit2" id="pass2joursReduit" class="checkbox3" onchange="pass2ROption()">
             <label for=" pass2jours">Pass 2 jours : 50€</label>
           </div>
 
           <div>
-            <input type="checkbox" name="passjourReduit3" id="pass3joursReduit"  class="checkbox3">
+            <input type="checkbox" name="passjourReduit3" id="pass3joursReduit" class="checkbox3">
             <label for="pass3jours">Pass 3 jours : 65€</label>
           </div>
 
@@ -129,17 +129,17 @@ if (isset($_GET['erreur'])) {
         <div class="colone">
           <h4>Veuillez selectionner une date :</h4>
           <div>
-            <input type="checkbox" name="choixJour1" id="choixJour1" class="checkbox2">
+            <input type="checkbox" name="choixJour1" id="choixJour1" class="checkbox4">
             <label for="choixJour1">Pass pour la journée du 01/07</label>
           </div>
 
           <div>
-            <input type="checkbox" name="choixJour2" id="choixJour2" class="checkbox2">
+            <input type="checkbox" name="choixJour2" id="choixJour2" class="checkbox4">
             <label for="choixJour2">Pass pour la journée du 02/07</label>
           </div>
 
           <div>
-            <input type="checkbox" name="choixJour3" id="choixJour3" class="checkbox2">
+            <input type="checkbox" name="choixJour3" id="choixJour3" class="checkbox4">
             <label for="choixJour3">Pass pour la journée du 03/07</label>
           </div>
       </section>
@@ -149,12 +149,12 @@ if (isset($_GET['erreur'])) {
         <div class="colone">
           <h4>Veuillez selectionner une date :</h4>
           <div>
-            <input type="checkbox" name="choixJour12" id="choixJour12" class="checkbox2">
+            <input type="checkbox" name="choixJour12" id="choixJour12" class="checkbox4">
             <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
           </div>
 
           <div>
-            <input type="checkbox" name="choixJour23" id="choixJour23" class="checkbox2">
+            <input type="checkbox" name="choixJour23" id="choixJour23" class="checkbox4">
             <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
           </div>
 
@@ -165,8 +165,8 @@ if (isset($_GET['erreur'])) {
       <div id="boutonSuivant" type="submit" name="submit1" onclick="nextFieldset('options')">
         <p class="bouton">Suivant</p>
       </div>
-        
-        <?php
+
+      <?php
       if ($code_erreur === 4) { ?>
         <div class="message echec">
           Réservation incomplète, veuillez sélectionner tous les champs requis.
@@ -255,8 +255,8 @@ if (isset($_GET['erreur'])) {
       </div>
     </fieldset>
 
-      
-      
+
+
     <!-- Troisieme bloc -->
     <fieldset id="coordonnees" style="display:none">
 
@@ -278,22 +278,22 @@ if (isset($_GET['erreur'])) {
           <input type="email" name="email" id="email">
         </div>
         <?php
-      if ($code_erreur === 5) { ?>
-        <div class="message echec">
-          Choisir un email valable.
-        </div>
-      <?php } ?>
+        if ($code_erreur === 5) { ?>
+          <div class="message echec">
+            Choisir un email valable.
+          </div>
+        <?php } ?>
 
         <div class="marginInput">
           <label for="telephone">Téléphone :</label>
           <input type="tel" name="telephone" id="telephone" maxlength="10">
         </div>
-         <?php
-      if ($code_erreur === 6) { ?>
-        <div class="message echec">
-          Choisir un numero de téléphone valable.
-        </div>
-      <?php } ?>
+        <?php
+        if ($code_erreur === 6) { ?>
+          <div class="message echec">
+            Choisir un numero de téléphone valable.
+          </div>
+        <?php } ?>
 
         <div class="marginInput">
           <label for="adressePostale">Adresse Postale :</label>
