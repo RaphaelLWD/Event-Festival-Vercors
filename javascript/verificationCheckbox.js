@@ -11,6 +11,7 @@ choixFormule.forEach(formule => {
                     autresFormule.checked = false;
                 }
             })
+
         }
     })
 });
@@ -22,6 +23,7 @@ choixDate.forEach(date => {
                     autresDate.checked = false;
                 }
             })
+
         }
     })
 })
@@ -33,6 +35,7 @@ choixFormuleReduit.forEach(formuleReduit => {
                     autresFormuleReduit.checked = false;
                 }
             })
+
         }
     })
 })
@@ -44,6 +47,7 @@ choixDateReduit.forEach(dateReduit => {
                     autresDateReduit.checked = false;
                 }
             })
+
         }
     })
 });

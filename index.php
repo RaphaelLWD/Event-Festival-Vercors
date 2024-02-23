@@ -26,6 +26,7 @@ if (isset($_GET['erreur'])) {
 <header>
   <div class="bandeau">
     <img class="logo" src="./Medias/logoVercors.png">
+    <button id="admin" class="classe">ADMIN</button> <!-- Ajout d'un bouton pour page admin -->
   </div>
 </header>
 
@@ -45,20 +46,23 @@ if (isset($_GET['erreur'])) {
           Vous devez entrer un nombre de réservations.
         </div>
       <?php } ?>
-
+      <!-- <h3>Reservation en tarif normal</h3>
+      <input type="checkbox" name="tarifNormal" id="tarifNormal" onchange="passROption()">
+      <label for="tarifNormal">Ma réservation sera en tarif normal</label> -->
       <h3>Réservation(s) en tarif réduit (sur présentation des pièces justificatives)
         <div class="cadre">
           <div class="infos">
             <span>Sur présentation des pièces justificatives :<br>
-              _pièce d'identité<br>
-              _carte mobilité inclusion
-              _attestation chômage
+              pièce d'identité<br>
+              carte mobilité inclusion<br>
+              attestation chômage
             </span>
           </div>
           <span class="logoI">&#x1F6C8</span>
         </div>
       </h3>
-      <input type="checkbox" name="tarifReduit" id="tarifReduit" onchange="passROption()">
+      <input type="checkbox" name="tarifReduit" id="tarifReduit" class="checkbox1" onchange="passROption()">
+
 
       <?php
       if ($code_erreur === 3) { ?>
