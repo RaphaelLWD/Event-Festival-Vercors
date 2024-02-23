@@ -39,28 +39,34 @@ if (isset($_GET['erreur'])) {
       <h3>Nombre de réservation(s) :</h3>
       <input type="number" name="nombrePlaces" id="NombrePlaces" min="1">
       <?php
-      if ($code_erreur === 2) { ?>
+      if ($code_erreur === 1) { ?>
         <div class="message echec">
           Vous devez entrer un nombre de réservations.
         </div>
       <?php } ?>
       <h3>Réservation(s) en tarif réduit (sur présentation des pièces justificatives)</h3>
-      <input type="checkbox" name="tarifReduit" id="tarifReduit" onchange="passROption()">
+      <input type="checkbox" name="tarifReduit" id="tarifReduit" class="checkbox1" onchange="passROption()">
       <?php
-      if ($code_erreur === 8) { ?>
+      if ($code_erreur === 3) { ?>
         <div class="message echec">
-          Choisir une formule et une date.
+          Choisir une formule.
+        </div>
+      <?php } ?>
+      <?php
+      if ($code_erreur === 2) { ?>
+        <div class="message echec">
+          Choisir une date.
         </div>
       <?php } ?>
       <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
 
       <h3>Choisissez votre formule :</h3>
 
-      <input type="checkbox" name="passSelection1" id="pass1jour" onchange="pass1Option()">
+      <input type="checkbox" name="passSelection1" id="pass1jour" class="checkbox1" onchange="pass1Option()">
       <?php
-      if ($code_erreur === 7) { ?>
+      if ($code_erreur === 3) { ?>
         <div class="message echec">
-          Vous devez choisir une formule.
+          Choisir une formule.
         </div>
       <?php } ?>
 
@@ -69,34 +75,33 @@ if (isset($_GET['erreur'])) {
       <!-- Si case cochée, afficher le choix du jour -->
       <section id="pass1jourDate" class="hidden">
 
-        <input type="checkbox" name="choixJour1" id="choixJour1">
-
+        <input type="checkbox" name="choixJour1" id="choixJour1" class="checkbox2">
         <label for="choixJour1">Pass pour la journée du 01/07</label>
-        <input type="checkbox" name="choixJour2" id="choixJour2">
+        <input type="checkbox" name="choixJour2" id="choixJour2" class="checkbox2">
         <label for="choixJour2">Pass pour la journée du 02/07</label>
-        <input type="checkbox" name="choixJour3" id="choixJour3">
+        <input type="checkbox" name="choixJour3" id="choixJour3" class="checkbox2">
         <label for="choixJour3">Pass pour la journée du 03/07</label>
       </section>
 
 
-      <input type="checkbox" name="passSelection2" id="pass2jours" onchange="pass2Option()">
+      <input type="checkbox" name="passSelection2" id="pass2jours" class="checkbox1" onchange="pass2Option()">
 
       <label for="pass2jours">Pass 2 jours : 70€</label>
 
       <!-- Si case cochée, afficher le choix des jours -->
       <section id="pass2joursDate" class="hidden">
 
-        <input type="checkbox" name="choixJour12" id="choixJour12">
+        <input type="checkbox" name="choixJour12" id="choixJour12" class="checkbox2">
 
 
         <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
-        <input type="checkbox" name="choixJour23" id="choixJour23">
+        <input type="checkbox" name="choixJour23" id="choixJour23" class="checkbox2">
         <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
       </section>
 
 
 
-      <input type="checkbox" name="passSelection3" id="pass3jours">
+      <input type="checkbox" name="passSelection3" id="pass3jours" class="checkbox1">
 
       <label for="pass3jours">Pass 3 jours : 100€</label>
 
@@ -104,78 +109,50 @@ if (isset($_GET['erreur'])) {
       <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
       <section id="tarifReduitChoix" class="hidden">
 
-        <input type="checkbox" name="passjourReduit1" id="pass1jourReduit">
+        <input type="checkbox" name="passjourReduit1" id="pass1jourReduit" class="checkbox2">
         <label for="pass1jour">Pass 1 jour : 25€</label>
-        <input type="checkbox" name="passjourReduit2" id="pass2joursReduit">
+        <input type="checkbox" name="passjourReduit2" id="pass2joursReduit" class="checkbox2">
         <label for="pass2jours">Pass 2 jours : 50€</label>
-        <input type="checkbox" name="passjourReduit3" id="pass3joursReduit">
+        <input type="checkbox" name="passjourReduit3" id="pass3joursReduit" class="checkbox2">
         <label for="pass3jours">Pass 3 jours : 65€</label>
 
       </section>
-      <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
-
-      <!-- <input type="checkbox" name="passGroupe" id="passGroupe">-->
-      <!--<label for="passGroupe">Pass Groupe 5 personnes : 150€ / jour</label>-->
-
-      <!-- <section id="passGroupeChoisi" class="hidden"> -->
-      <!-- tarifs groupe selon nombres de jours: à n'afficher que si tarif groupe est sélectionné -->
-      <!-- <input type="checkbox" name="passGroupe1jour" id="passGroupe1jour">
-
-        <label for="passGroupe1jour">Pass Groupe une journée : 150€</label>
-
-        <section id="passGroupe1jourDate" class="displayNone displayBlock">
-          <input type="checkbox" name="choixGroupeJour1" id="choixGroupeJour1">
-          <label for="choixGroupeJour1">Pass pour la journée du 01/07</label>
-          <input type="checkbox" name="choixGroupeJour2" id="choixGroupeJour2">
-          <label for="choixGroupeJour2">Pass pour la journée du 02/07</label>
-          <input type="checkbox" name="choixGroupeJour3" id="choixGroupeJour3">
-          <label for="choixGroupeJour3">Pass pour la journée du 03/07</label>
-        </section>
-
-        <input type="checkbox" name="passGroupe2jour" id="passGroupe2jour">
-        <label for="passGroupe2jours">Pass Groupe 2 jours : 300€</label>
-
-        <section id="passGroupe2joursDate" class="displayNone displayBlock">
-          <input type="checkbox" name="choixGroupeJour12" id="choixGroupeJour12">
-          <label for="choixGroupeJour12">Pass pour deux journées du 01/07 au 02/07</label>
-          <input type="checkbox" name="choixGroupeJour23" id="choixGroupeJour23">
-          <label for="choixGroupeJour23">Pass pour deux journées du 02/07 au 03/07</label>
-        </section>
-
-        <input type="checkbox" name="passGroupe3jour" id="passGroupe3jour">
-        <label for="passGroupe3jours">Pass Groupe 3 jours : 450€</label>
-      </section> -->
-
       <div id="boutonSuivant" type="submit" name="submit1" onclick="nextFieldset('options')">
         <p class="bouton">Suivant</p>
       </div>
+      <?php
+      if ($code_erreur === 4) { ?>
+        <div class="message echec">
+          Réservation incomplète, veuillez sélectionner tous les champs requis.
+        </div>
+      <?php } ?>
 
     </fieldset>
     <fieldset id="options" style="display:none">
       <legend>Options</legend>
       <h3>Réserver un emplacement de tente : </h3>
-      <input type="checkbox" id="tenteNuit1" name="tenteNuit1">
+      <input type="checkbox" id="tenteNuit1" name="tenteNuit1" class="tenteNuit">
       <label for="tenteNuit1">Pour la nuit du 01/07 (5€)</label>
-      <input type="checkbox" id="tenteNuit2" name="tenteNuit2">
+      <input type="checkbox" id="tenteNuit2" name="tenteNuit2" class="tenteNuit">
       <label for="tenteNuit2">Pour la nuit du 02/07 (5€)</label>
-      <input type="checkbox" id="tenteNuit3" name="tenteNuit3">
+      <input type="checkbox" id="tenteNuit3" name="tenteNuit3" class="tenteNuit">
       <label for="tenteNuit3">Pour la nuit du 03/07 (5€)</label>
-      <input type="checkbox" id="tente3Nuits" name="tente3Nuits">
+      <input type="checkbox" id="tente3Nuits" name="tente3Nuits" class="tenteNuit">
       <label for="tente3Nuits">Pour les 3 nuits (12€)</label>
 
       <h3>Réserver un emplacement de camion aménagé : </h3>
-      <input type="checkbox" id="vanNuit1" name="vanNuit1">
+      <input type="checkbox" id="vanNuit1" name="vanNuit1" class="vanNuit">
       <label for="vanNuit1">Pour la nuit du 01/07 (5€)</label>
-      <input type="checkbox" id="vanNuit2" name="vanNuit2">
+      <input type="checkbox" id="vanNuit2" name="vanNuit2" class="vanNuit">
       <label for="vanNuit2">Pour la nuit du 02/07 (5€)</label>
-      <input type="checkbox" id="vanNuit3" name="vanNuit3">
+      <input type="checkbox" id="vanNuit3" name="vanNuit3" class="vanNuit">
       <label for="vanNuit3">Pour la nuit du 03/07 (5€)</label>
-      <input type="checkbox" id="van3Nuits" name="van3Nuits">
+      <input type="checkbox" id="van3Nuits" name="van3Nuits" class="vanNuit">
       <label for="van3Nuits">Pour les 3 nuits (12€)</label>
 
       <h3>Venez-vous avec des enfants ?</h3>
-      <input type="checkbox" name="enfantsOui" id="enfantO" onchange="enfantOption()"><label for="enfants">Oui</label>
-      <input type="checkbox" name="enfants" onchange="enfantOption()"><label for="enfantsNon" id="enfantN">Non</label>
+      <input type="checkbox" name="enfantsOui" id="enfantO" onchange="enfantOption()" class="enfant"><label for="enfants">Oui</label>
+      <input type="checkbox" name="enfants" onchange="enfantOption()" class="enfant"><label for="enfantsNon" id="enfantN">Non</label>
 
       <!-- Si oui, afficher : -->
       <section id="optionEnfant" class="hidden">
@@ -200,19 +177,34 @@ if (isset($_GET['erreur'])) {
     <fieldset id="coordonnees" style="display:none">
       <legend>Coordonnées</legend>
       <label for="nom">Nom :</label>
-      <input type="text" name="nom" id="nom">
+      <input type="text" name="nom" id="nom" required>
       <label for="prenom">Prénom :</label>
-      <input type="text" name="prenom" id="prenom">
+      <input type="text" name="prenom" id="prenom" required>
       <label for="email">Email :</label>
-      <input type="email" name="email" id="email">
+      <input type="email" name="email" id="email" required>
+      <?php
+      if ($code_erreur === 5) { ?>
+        <div class="message echec">
+          Choisir un email valable.
+        </div>
+      <?php } ?>
       <label for="telephone">Téléphone :</label>
-      <input type="tel" name="telephone" id="telephone" maxlength="10">
+      <input type="tel" name="telephone" id="telephone" maxlength="10" required>
+      <?php
+      if ($code_erreur === 6) { ?>
+        <div class="message echec">
+          Choisir un numero de téléphone valable.
+        </div>
+      <?php } ?>
       <label for="adressePostale">Adresse Postale :</label>
-      <input type="text" name="adressePostale" id="adressePostale">
-
-
+      <input type="text" name="adressePostale" id="adressePostale" required>
       <input type="submit" name="soumission" class="bouton reserver" value="Réserver">
-
+      <?php
+      if ($code_erreur === 4) { ?>
+        <div class="message echec">
+          Veuillez remplir tous les champs disponible.
+        </div>
+      <?php } ?>
     </fieldset>
 
   </form>

@@ -14,26 +14,24 @@ require 'sources/classes/Reservation.php';
 <body>
     <div>
         <h2>Voici votre récap </h2>
-        <?php foreach ($reservations as $reservation) { ?>
-            <tr>
-                <td><?= $reservation->getId() ?></td>
-                <td><?= $reservation->getNom() ?></td>
-                <td><?= $reservation->getPrenom() ?></td>
-                <td><?= $reservation->getMail() ?></td>
-                <td><?= $reservation->getTel() ?></td>
-                <td><?= $reservation->getAdresse() ?></td>
-                <td><?= $reservation->getNombreReservation() ?></td>
-                <td><?= $reservation->getFormule() ?></td>
-                <td><?= $reservation->getTarifReduit() ?></td>
-                <td><?= $reservation->getDate() ?></td>
-                <td><?= $reservation->getTente() ?></td>
-                <td><?= $reservation->getCamion() ?></td>
-                <td><?= $reservation->getEnfants() ?></td>
-                <td><?= $reservation->getCasques() ?></td>
-                <td><?= $reservation->getLuge() ?></td>
-                <td><button onclick="location.href='src/suppression?suppression=<?= $utilisateur->getId() ?>'">🗑️ Supprimer</button></td>
-            </tr>
-        <?php } ?>
+        <?php
+        $row = 1;
+        $handle = fopen("./sources/csv/reservation.csv", "r");
+        while (($fichier = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            $ligne = count($fichier);
+            echo "<p> Votre reservation : <br/></p>\n";
+            $row++;
+            for ($c = 0; $c < $ligne; $c++) {
+                echo $fichier[$c] . "<br/>\n";
+            }
+        }
+        fclose($handle);
+        // } else {
+        //     echo "<p>incapable de trouver le fichier csv</p>";
+        // }
+        ?>
+
+        <?php ?>
     </div>
 </body>
 
