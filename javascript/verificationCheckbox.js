@@ -1,61 +1,65 @@
-const choixFormule = document.querySelectorAll('.checkbox1'); // Comprends Pass 1 Pass 2 Pass 3 et Tarif reduit
-const choixDate = document.querySelectorAll('.checkbox2');  // Comprends date 1 date 2 date 3 date 4 et 5 
-const choixFormuleReduit = document.querySelectorAll('.checkbox3'); // Comprends les différents pass mais en reduit
-const choixDateReduit = document.querySelectorAll('.checkbox4');   // Comprends les différentes dates mais en reduit
-
-choixFormule.forEach(formule => {
-    formule.addEventListener('change', function () {
+// Écouteurs d'événements pour les choix de pass (1 jour, 2 jours, 3 jours)
+const formule = document.querySelectorAll('.checkbox1');
+formule.forEach(pass => {
+    pass.addEventListener('change', function () {
         if (this.checked) {
-            choixFormule.forEach(autresFormule => {
-                if (autresFormule !== this) {
-                    autresFormule.checked = false;
+            formule.forEach(autresPass => {
+                if (autresPass !== this) {
+                    autresPass.checked = false;
                 }
-            })
-
+            });
         }
-    })
+    });
 });
-choixDate.forEach(date => {
+
+// Écouteurs d'événements pour les choix de date
+const dates = document.querySelectorAll('.checkbox2');
+dates.forEach(date => {
     date.addEventListener('change', function () {
         if (this.checked) {
-            choixDate.forEach(autresDate => {
-                if (autresDate !== this) {
-                    autresDate.checked = false;
+            dates.forEach(autresDates => {
+                if (autresDates !== this) {
+                    autresDates.checked = false;
                 }
-            })
-
+            });
         }
-    })
-})
-choixFormuleReduit.forEach(formuleReduit => {
-    formuleReduit.addEventListener('change', function () {
+    });
+});
+
+// Écouteurs d'événements pour les choix de pass réduit
+const tarifReduit = document.querySelectorAll('.checkbox3');
+tarifReduit.forEach(passReduit => {
+    passReduit.addEventListener('change', function () {
         if (this.checked) {
-            choixFormuleReduit.forEach(autresFormuleReduit => {
-                if (autresFormuleReduit !== this) {
-                    autresFormuleReduit.checked = false;
+            tarifReduit.forEach(autresPassReduit => {
+                if (autresPassReduit !== this) {
+                    autresPassReduit.checked = false;
                 }
-            })
-
+            });
+            passes.forEach(pass => pass.checked = false);
         }
-    })
-})
-choixDateReduit.forEach(dateReduit => {
-    dateReduit.addEventListener('change', function () {
+    });
+});
+
+// Écouteurs d'événements pour les choix de date de pass réduit
+const passReduitDates = document.querySelectorAll('.checkbox4');
+passReduitDates.forEach(passReduitDate => {
+    passReduitDate.addEventListener('change', function () {
         if (this.checked) {
-            choixDateReduit.forEach(autresDateReduit => {
-                if (autresDateReduit !== this) {
-                    autresDateReduit.checked = false;
+            passReduitDates.forEach(autresPassReduitDate => {
+                if (autresPassReduitDate !== this) {
+                    autresPassReduitDate.checked = false;
                 }
-            })
-
+            });
         }
-    })
+    });
 });
 
 const choixTente = document.querySelectorAll('.tenteNuit');
 const choixVan = document.querySelectorAll('.vanNuit');
 const enfants = document.querySelectorAll('.enfant');
 
+//  Ecouteurs d'événements pour les tentes
 choixTente.forEach(tente => {
     tente.addEventListener('change', function () {
         choixTente.forEach(autreschoix => {
@@ -65,6 +69,7 @@ choixTente.forEach(tente => {
         })
     })
 })
+//  Ecouteurs d'événements pour les van
 choixVan.forEach(van => {
     van.addEventListener('change', function () {
         choixVan.forEach(autreschoix => {
@@ -74,6 +79,7 @@ choixVan.forEach(van => {
         })
     })
 })
+//  Ecouteurs d'événements pour les enfants
 enfants.forEach(enfant => {
     enfant.addEventListener('change', function () {
         enfants.forEach(autreschoix => {

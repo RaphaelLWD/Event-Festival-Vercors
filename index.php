@@ -133,17 +133,17 @@ if (isset($_GET['erreur'])) {
         <div class="colone">
           <h4>Veuillez selectionner une date :</h4>
           <div>
-            <input type="checkbox" name="choixJour1" id="choixJour1" class="checkbox4">
+            <input type="checkbox" name="choixJour1" id="choixJour1" class="checkbox2 checkbox4">
             <label for="choixJour1">Pass pour la journée du 01/07</label>
           </div>
 
           <div>
-            <input type="checkbox" name="choixJour2" id="choixJour2" class="checkbox4">
+            <input type="checkbox" name="choixJour2" id="choixJour2" class="checkbox2 checkbox4">
             <label for="choixJour2">Pass pour la journée du 02/07</label>
           </div>
 
           <div>
-            <input type="checkbox" name="choixJour3" id="choixJour3" class="checkbox4">
+            <input type="checkbox" name="choixJour3" id="choixJour3" class="checkbox2 checkbox4">
             <label for="choixJour3">Pass pour la journée du 03/07</label>
           </div>
       </section>
@@ -153,12 +153,12 @@ if (isset($_GET['erreur'])) {
         <div class="colone">
           <h4>Veuillez selectionner une date :</h4>
           <div>
-            <input type="checkbox" name="choixJour12" id="choixJour12" class="checkbox4">
+            <input type="checkbox" name="choixJour12" id="choixJour12" class="checkbox2 checkbox4">
             <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
           </div>
 
           <div>
-            <input type="checkbox" name="choixJour23" id="choixJour23" class="checkbox4">
+            <input type="checkbox" name="choixJour23" id="choixJour23" class="checkbox2 checkbox4">
             <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
           </div>
 
