@@ -23,7 +23,7 @@ require 'sources/classes/Reservation.php';
         <div class="navBarre">
             <img class="logo" src="./Medias/logoVercors.png">
             <div class="navBouttons"><a href="./index.php">
-                    Acceuille
+                    Accueil
                 </a>
             </div>
             <div class="navBouttons"><a href="./pageAdmin.php">
@@ -39,25 +39,28 @@ require 'sources/classes/Reservation.php';
 </header>
 
 <body>
-    <div class="tickets">
-        <h2>Toutes les reservations </h2>
-        <?php
-        $row = 1;
-        $handle = fopen("./sources/csv/reservation.csv", "r");
-        while (($fichier = fgetcsv($handle, 1000, ",")) !== FALSE) {
-            $ligne = count($fichier);
-            echo "<p>Reservation : <br/></p>\n";
-            $row++;
-            for ($c = 0; $c < $ligne; $c++) {
-                echo "<div class='test'> $fichier[$c] </div> <br/>\n";
+    <div class="center">
+
+        <div class="tickets">
+            <h2>Toutes les reservations :</h2>
+            <?php
+            $row = 1;
+            $handle = fopen("./sources/csv/reservation.csv", "r");
+            while (($fichier = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                $ligne = count($fichier);
+                $row++;
+                for ($c = 0; $c < $ligne; $c++) {
+                    echo " $fichier[$c] <br/>\n";
+                }
             }
-        }
-        fclose($handle);
+            fclose($handle);
 
-        ?>
+            ?>
 
-        <?php ?>
+            <?php ?>
+        </div>
     </div>
+
 </body>
 
 </html>

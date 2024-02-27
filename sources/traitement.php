@@ -7,7 +7,7 @@ require 'classes/DataReservation.php';
 if (!empty($_POST['nombresplaces']) && !empty($_POST['tarifReduit']) || !empty($_POST['passSelection1']) || !empty($_POST['passSelection2']) || !empty($_POST['passSelection3']) && !empty($_POST['choixJour1']) || !empty($_POST['choixJour2']) || !empty($_POST['choixJour3']) && !empty($_POST['choixJour12']) || !empty($_POST['choixJour23'])) {
 
     if (isset($_POST['nombrePlaces']) && !empty($_POST['nombrePlaces']) && is_numeric($_POST['nombrePlaces'])) {
-        $nombreReservation = is_int($_POST['nombrePlaces']);
+        $nombreReservation = ($_POST['nombrePlaces']);
     } else {
         header('location:../index.php?erreur=' . ERREUR_RESERVATION);
         die;
@@ -55,7 +55,7 @@ if (!empty($_POST['nombresplaces']) && !empty($_POST['tarifReduit']) || !empty($
 
 // Traitement deuxieme page //
 // 1) Vérifier si les champs sont isset et empty 
-if (isset($_POST["tenteNuit1"]) && isset($_POST["tenteNuit2"]) && isset($_POST["tenteNuit3"]) && isset($_POST["vanNuit1"]) && isset($_POST["vanNuit2"]) && isset($_POST["vanNuit3"]) && isset($_POST["enfants"]) && isset($_POST["nombreCasquesEnfants"]) && isset($_POST["NombreLugesEte"]) && !empty($_POST["tenteNuit1"]) && !empty($_POST["tenteNuit2"]) && !empty($_POST["tenteNuit3"]) && !empty($_POST["vanNuit1"]) && !empty($_POST["vanNuit2"]) && !empty($_POST["vanNuit3"]) && !empty($_POST["enfants"]) && !empty($_POST["nombreCasquesEnfants"]) && !empty($_POST["NombreLugesEte"]))
+if (isset($_POST["tenteNuit1"]) || isset($_POST["tenteNuit2"]) || isset($_POST["tenteNuit3"]) && isset($_POST["vanNuit1"]) && isset($_POST["vanNuit2"]) && isset($_POST["vanNuit3"]) && isset($_POST["enfants"]) && isset($_POST["nombreCasquesEnfants"]) && isset($_POST["NombreLugesEte"]) && !empty($_POST["tenteNuit1"]) && !empty($_POST["tenteNuit2"]) && !empty($_POST["tenteNuit3"]) && !empty($_POST["vanNuit1"]) && !empty($_POST["vanNuit2"]) && !empty($_POST["vanNuit3"]) && !empty($_POST["enfants"]) && !empty($_POST["nombreCasquesEnfants"]) && !empty($_POST["NombreLugesEte"]))
 // 2) si oui $variable = value 
 {
     $tente = $_POST["tenteNuit1"] || $_POST["tenteNuit2"] || $_POST["tenteNuit3"];

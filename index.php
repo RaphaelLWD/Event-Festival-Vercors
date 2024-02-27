@@ -25,9 +25,24 @@ if (isset($_GET['erreur'])) {
 </head>
 <header>
   <div class="bandeau">
-    <img class="logo" src="./Medias/logoVercors.png">
+    <div class="navBarre">
+      <img class="logo" src="./Medias/logoVercors.png">
+      <div class="navBouttons"><a href="./index.php">
+          Accueil
+        </a>
+      </div>
+      <div class="navBouttons"><a href="./pageAdmin.php">
+          Admin
+        </a>
+      </div>
+      <div class="navBouttons"><a href="./login.php">
+          Connexion
+        </a>
+      </div>
+    </div>
   </div>
 </header>
+
 
 <body>
   <form action="sources/traitement.php" id="inscription" method="POST">
