@@ -53,23 +53,35 @@ if (!empty($_POST['nombresplaces']) && !empty($_POST['tarifReduit']) || !empty($
 }
 
 
+
 // Traitement deuxieme page //
-// 1) Vérifier si les champs sont isset et empty 
-if (isset($_POST["tenteNuit1"]) || isset($_POST["tenteNuit2"]) || isset($_POST["tenteNuit3"]) && isset($_POST["vanNuit1"]) && isset($_POST["vanNuit2"]) && isset($_POST["vanNuit3"]) && isset($_POST["enfants"]) && isset($_POST["nombreCasquesEnfants"]) && isset($_POST["NombreLugesEte"]) && !empty($_POST["tenteNuit1"]) && !empty($_POST["tenteNuit2"]) && !empty($_POST["tenteNuit3"]) && !empty($_POST["vanNuit1"]) && !empty($_POST["vanNuit2"]) && !empty($_POST["vanNuit3"]) && !empty($_POST["enfants"]) && !empty($_POST["nombreCasquesEnfants"]) && !empty($_POST["NombreLugesEte"]))
-// 2) si oui $variable = value 
-{
+if (isset($_POST["tenteNuit1"]) || isset($_POST["tenteNuit2"]) || isset($_POST["tenteNuit3"]) || isset($_POST["tente3Nuits"]) && !empty($_POST["tenteNuit1"]) || !empty($_POST["tenteNuit2"]) || !empty($_POST["tenteNuit3"]) || !empty($_POST["tente3Nuits"])) {
     $tente = $_POST["tenteNuit1"] || $_POST["tenteNuit2"] || $_POST["tenteNuit3"];
-    $camion = $_POST["vanNuit1"] || $_POST["vanNuit2"] || $_POST["vanNuit3"];
-    $enfants = $_POST["enfants"];
-    $casques = $_POST["nombreCasquesEnfants"];
-    $luge = $_POST["NombreLugesEte"];
-}
-// 3) si non $variable = value = null/none
-else {
+} else {
     $tente = "";
+}
+
+if (isset($_POST["vanNuit1"]) || isset($_POST["vanNuit2"]) || isset($_POST["vanNuit3"]) || isset($_POST["van3Nuits"]) && !empty($_POST["vanNuit1"]) || !empty($_POST["vanNuit2"]) || !empty($_POST["vanNuit3"]) || !empty($_POST["van3Nuits"])) {
+    $camion = $_POST["vanNuit1"] || $_POST["vanNuit2"] || $_POST["vanNuit3"];
+} else {
     $camion = "";
+}
+
+if (isset($_POST["enfants"]) && !empty($_POST["enfants"])) {
+    $enfants = $_POST["enfants"];
+} else {
     $enfants = "";
+}
+
+if (isset($_POST["nombreCasquesEnfants"]) || !empty($_POST["nombreCasquesEnfants"])) {
+    $casques = $_POST["nombreCasquesEnfants"];
+} else {
     $casques = "";
+}
+
+if (isset($_POST["NombreLugesEte"]) && !empty($_POST["NombreLugesEte"])) {
+    $luge = $_POST["NombreLugesEte"];
+} else {
     $luge = "";
 }
 
