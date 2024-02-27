@@ -54,9 +54,6 @@ require 'sources/classes/Reservation.php';
             }
         }
         fclose($handle);
-        // } else {
-        //     echo "<p>incapable de trouver le fichier csv</p>";
-        // }
         ?>
 
         <?php ?>

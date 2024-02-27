@@ -67,9 +67,11 @@ if (isset($_POST["vanNuit1"]) || isset($_POST["vanNuit2"]) || isset($_POST["vanN
     $camion = "";
 }
 
+if (isset($_POST["enfantsOui"]) && !empty($_POST["enfantsOui"])) {
+    $enfants = $_POST["enfantsOui"];
+}
+
 if (isset($_POST["enfants"]) && !empty($_POST["enfants"])) {
-    $enfants = $_POST["enfants"];
-} else {
     $enfants = "";
 }
 

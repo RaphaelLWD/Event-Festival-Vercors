@@ -178,21 +178,21 @@ class Reservation
     public function getObjectToTicket()
     {
         return [
-            "id" => $this->_id,
-            "nom" => $this->_nom,
-            "prenom" => $this->_prenom,
-            "mail" => $this->_mail,
-            "tel" => $this->_tel,
-            "adresse" => $this->_adresse,
-            "nombreReservation" => $this->_nombreReservation,
-            "tarifReduit" => $this->_tarifReduit,
-            "formule" => $this->_formule,
-            "date" => $this->_date,
-            "tente" => $this->_tente,
-            "camion" => $this->_camion,
-            "enfants" => $this->_enfants,
-            "casques" => $this->_casques,
-            "luge" => $this->_luge,
+            "id" =>  $this->_id,
+            "nom" => "Nom : " . $this->_nom,
+            "prenom" => "Prénom : " . $this->_prenom,
+            "mail" => "Mail : " . $this->_mail,
+            "tel" => "Téléphone : " . $this->_tel,
+            "adresse" => "Adresse : " . $this->_adresse,
+            "nombreReservation" => "Nombre de places : " . $this->_nombreReservation,
+            "tarifReduit" => "Tarif réduit : " . $this->_tarifReduit,
+            "formule" => "Choix de la formule : " . $this->_formule,
+            "date" => "Date : " . $this->_date,
+            "tente" => "Tente : " . $this->_tente,
+            "camion" => "Camion : " . $this->_camion,
+            "enfants" => "Présence d'enfants : " . $this->_enfants,
+            "casques" => "Nombre de casques : " . $this->_casques,
+            "luge" => "Nombre de luges : " . $this->_luge,
         ];
     }
     public function creerNouvelleId(): int
