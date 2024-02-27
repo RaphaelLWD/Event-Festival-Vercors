@@ -49,13 +49,16 @@ require 'sources/classes/Reservation.php';
             while (($fichier = fgetcsv($handle, 1000, ",")) !== FALSE) {
                 $ligne = count($fichier);
                 $row++;
-                for ($c = 0; $c < $ligne; $c++) {
-                    echo " $fichier[$c] <br/>\n";
-                }
-            }
-            fclose($handle);
+            ?><div class="test">
+                    <?php
+                    for ($c = 0; $c < $ligne; $c++) {
+                        echo " $fichier[$c] <br>\n";
+                    }
+                    ?></div><br><?php
+                            }
+                            fclose($handle);
 
-            ?>
+                                ?>
 
             <?php ?>
         </div>
