@@ -23,7 +23,7 @@ require 'sources/classes/Reservation.php';
         <div class="navBarre">
             <img class="logo" src="./Medias/logoVercors.png">
             <div class="navBouttons"><a href="./index.php">
-                    Accueils
+                    Accueil
                 </a>
             </div>
             <div class="navBouttons"><a href="./pageAdmin.php">

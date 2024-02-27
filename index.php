@@ -66,7 +66,7 @@ if (isset($_GET['erreur'])) {
           <div class="infos">
             <span>Sur présentation des pièces justificatives :<br>
               _pièce d'identité<br>
-              _carte mobilité inclusion
+              _carte mobilité inclusion<br>
               _attestation chômage
             </span>
           </div>
@@ -123,17 +123,17 @@ if (isset($_GET['erreur'])) {
           <h3>Formules réduites :</h3>
           <div>
             <input type="checkbox" name="passjourReduit1" id="pass1jourReduit" class="checkbox3" onchange="pass1ROption()">
-            <label for=" pass1jour">Pass 1 jour : 25€</label>
+            <label for="passjourReduit1">Pass 1 jour : 25€</label>
           </div>
 
           <div>
             <input type="checkbox" name="passjourReduit2" id="pass2joursReduit" class="checkbox3" onchange="pass2ROption()">
-            <label for=" pass2jours">Pass 2 jours : 50€</label>
+            <label for="passjourReduit2">Pass 2 jours : 50€</label>
           </div>
 
           <div>
             <input type="checkbox" name="passjourReduit3" id="pass3joursReduit" class="checkbox3">
-            <label for="pass3jours">Pass 3 jours : 65€</label>
+            <label for="passjourReduit3">Pass 3 jours : 65€</label>
           </div>
 
         </div>
