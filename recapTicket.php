@@ -39,24 +39,26 @@ require 'sources/classes/Reservation.php';
 </header>
 
 <body>
-    <div class="tickets">
-        <h2>Voici votre récap :</h2>
-    </div>
-    <div class="tickets">
-        <?php
-        $row = 1;
-        $handle = fopen("./sources/csv/reservation.csv", "r");
-        while (($fichier = fgetcsv($handle, 1000, ",")) !== FALSE) {
-            $ligne = count($fichier);
-            $row++;
-            for ($c = 0; $c < $ligne; $c++) {
-                echo $fichier[$c] . "<br/>\n";
+    <div class="center">
+        <div class="tickets">
+            <h2>Voici le récapitulatif de votre commande:</h2>
+        </div>
+        <div class="tickets">
+            <?php
+            $row = 1;
+            $handle = fopen("./sources/csv/reservation.csv", "r");
+            while (($fichier = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                $ligne = count($fichier);
+                $row++;
+                for ($c = 0; $c < $ligne; $c++) {
+                    echo $fichier[$c] . "<br/>\n";
+                }
             }
-        }
-        fclose($handle);
-        ?>
+            fclose($handle);
+            ?>
 
-        <?php ?>
+            <?php ?>
+        </div>
     </div>
 </body>
 

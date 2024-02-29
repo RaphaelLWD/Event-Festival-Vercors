@@ -39,10 +39,14 @@ class Reservation
         $this->setTel($tel);
         $this->setAdresse($adresse);
         $this->setTotal($total);
+        $this->setCamionPrix();
+        $this->setTentePrix($_tentePrix);
+        $this->setFormulePrix($formulePrix);
         $this->definirPrix();
         $this->definirAffichage();
     }
 
+    // Set/Get total
     public function getTotal()
     {
         return $this->_total;
@@ -57,83 +61,7 @@ class Reservation
         }
     }
 
-    public function definirAffichage()
-    {
-        $this->_nombreReservation = $_POST['nombrePlaces'];
-
-        if (isset($_POST['tarifReduit'])) {
-            $this->_tarifReduit = "Oui";
-        } else {
-            $this->_tarifReduit = "Non";
-        }
-
-        if (isset($_POST['passSelection1'])) {
-            $this->_formule = "Pass 1 jour";
-        } elseif (isset($_POST['passSelection2'])) {
-            $this->_formule = "Pass 2 jours";
-        } elseif (isset($_POST['passSelection3'])) {
-            $this->_formule = "Pass 3 jours";
-        }
-
-        if (isset($_POST['passjourReduit1'])) {
-            $this->_formule = "Pass 1 jour réduit";
-        } elseif (isset($_POST['passjourReduit2'])) {
-            $this->_formule = "Pass 2 jours réduit";
-        } elseif (isset($_POST['passjourReduit3'])) {
-            $this->_formule = "Pass 3 jours réduit";
-        }
-
-        if (isset($_POST["choixJour1"])) {
-            $this->_date = "Pass pour le 01/07";
-        } elseif (isset($_POST["choixJour2"])) {
-            $this->_date = "Pass pour le 02/07";
-        } elseif (isset($_POST["choixJour3"])) {
-            $this->_date = "Pass pour le 03/07";
-        } elseif (isset($_POST["passSelection3"]) || isset($_POST['passjourReduit3'])) {
-            $this->_date = "Pass du 01/07 au 03/07";
-        } elseif (isset($_POST["choixJour12"])) {
-            $this->_date = "Pass du 01/07 au 02/07";
-        } elseif (isset($_POST["choixJour23"])) {
-            $this->_date = "Pass du 02/07 au 03/07";
-        }
-
-        if (isset($_POST["tenteNuit1"])) {
-            $this->_camion = "Le 01/07";
-        } elseif (isset($_POST["tenteNuit2"])) {
-            $this->_camion = "Le 02/07";
-        } elseif (isset($_POST["tenteNuit3"])) {
-            $this->_camion = "Le 03/07";
-        } elseif (isset($_POST["tente3Nuits"])) {
-            $this->_camion = "Du 01/07 au 03/07";
-        } else {
-            $this->_camion = "Pas de reservation";
-        }
-
-        if (isset($_POST["vanNuit1"])) {
-            $this->_tente = "Le 01/07";
-        } elseif (isset($_POST["vanNuit2"])) {
-            $this->_tente = "Le 02/07";
-        } elseif (isset($_POST["vanNuit3"])) {
-            $this->_tente = "Le 03/07";
-        } elseif (isset($_POST["van3Nuits"])) {
-            $this->_tente = "Du 01/07 au 03/07";
-        } else {
-            $this->_camion = "Pas de reservation";
-        }
-
-        if (isset($_POST['enfantsOui'])) {
-            $this->_enfants = "Oui";
-        } elseif (isset($_POST["enfants"])) {
-            $this->_enfants = "Non";
-        } else {
-            $this->_enfants = "Non";
-        }
-
-        if (empty($_POST['nombreCasquesEnfants'])) {
-            $this->_casques = 0;
-        }
-    }
-
+    // Methode définition prix
     public function definirPrix()
     {
         if (isset($_POST['passSelection1'])) {
@@ -153,56 +81,58 @@ class Reservation
         }
 
         if (isset($_POST["tenteNuit1"]) || isset($_POST["tenteNuit2"]) || isset($_POST["tenteNuit3"])) {
-            $this->_camionPrix = 5;
-        } elseif (isset($_POST["tente3Nuits"])) {
-            $this->_camionPrix = 12;
-        } else {
-            $this->_camionPrix = 0;
-        }
-
-        if (isset($_POST["vanNuit1"]) || isset($_POST["vanNuit2"]) || isset($_POST["vanNuit3"])) {
             $this->_tentePrix = 5;
-        } elseif (isset($_POST["van3Nuits"])) {
+        } elseif (isset($_POST["tente3Nuits"])) {
             $this->_tentePrix = 12;
         } else {
             $this->_tentePrix = 0;
         }
+
+        if (isset($_POST["vanNuit1"]) || isset($_POST["vanNuit2"]) || isset($_POST["vanNuit3"])) {
+            $this->_camionPrix = 5;
+        } elseif (isset($_POST["van3Nuits"])) {
+            $this->_camionPrix = 12;
+        } else {
+            $this->_camionPrix = 0;
+        }
     }
 
+    // Methode calcule du $total
     public function calculePrix()
     {
         $this->_total = $this->_nombreReservation * ($this->_formulePrix + $this->_camionPrix + $this->_tentePrix) + $this->_luge * 5;
         return $this->_total;
     }
 
-    public function getCamionPrix(): string
+    // Get/set prix
+    public function getCamionPrix(): int
     {
         return $this->_camionPrix;
     }
-    public function setCamionPrix(string $camionPrix): void
+    public function setCamionPrix(int $camionPrix): void
     {
         $this->_camionPrix = $camionPrix;
     }
 
-    public function getTentePrix(): string
+    public function getTentePrix(): int
     {
         return $this->_tentePrix;
     }
-    public function setTentePrix(string $tentePrix): void
+    public function setTentePrix(int $tentePrix): void
     {
         $this->_tentePrix = $tentePrix;
     }
 
-    public function getFormulePrix(): string
+    public function getFormulePrix(): int
     {
         return $this->_formulePrix;
     }
-    public function setFormulePrix(string $formulePrix): void
+    public function setFormulePrix(int $formulePrix): void
     {
         $this->_formulePrix = $formulePrix;
     }
 
-
+    // Get/Set généraux
     public function getId()
     {
         return $this->_id;
@@ -342,6 +272,85 @@ class Reservation
         $this->_adresse = $adresse;
     }
 
+    // Methode affiché les information au lieu de 0 et 1
+    public function definirAffichage()
+    {
+        $this->_nombreReservation = $_POST['nombrePlaces'];
+
+        if (isset($_POST['tarifReduit'])) {
+            $this->_tarifReduit = "Oui";
+        } else {
+            $this->_tarifReduit = "Non";
+        }
+
+        if (isset($_POST['passSelection1'])) {
+            $this->_formule = "Pass 1 jour";
+        } elseif (isset($_POST['passSelection2'])) {
+            $this->_formule = "Pass 2 jours";
+        } elseif (isset($_POST['passSelection3'])) {
+            $this->_formule = "Pass 3 jours";
+        }
+
+        if (isset($_POST['passjourReduit1'])) {
+            $this->_formule = "Pass 1 jour réduit";
+        } elseif (isset($_POST['passjourReduit2'])) {
+            $this->_formule = "Pass 2 jours réduit";
+        } elseif (isset($_POST['passjourReduit3'])) {
+            $this->_formule = "Pass 3 jours réduit";
+        }
+
+        if (isset($_POST["choixJour1"])) {
+            $this->_date = "Pass pour le 01/07";
+        } elseif (isset($_POST["choixJour2"])) {
+            $this->_date = "Pass pour le 02/07";
+        } elseif (isset($_POST["choixJour3"])) {
+            $this->_date = "Pass pour le 03/07";
+        } elseif (isset($_POST["passSelection3"]) || isset($_POST['passjourReduit3'])) {
+            $this->_date = "Pass du 01/07 au 03/07";
+        } elseif (isset($_POST["choixJour12"])) {
+            $this->_date = "Pass du 01/07 au 02/07";
+        } elseif (isset($_POST["choixJour23"])) {
+            $this->_date = "Pass du 02/07 au 03/07";
+        }
+
+        if (isset($_POST["tenteNuit1"])) {
+            $this->_camion = "Le 01/07";
+        } elseif (isset($_POST["tenteNuit2"])) {
+            $this->_camion = "Le 02/07";
+        } elseif (isset($_POST["tenteNuit3"])) {
+            $this->_camion = "Le 03/07";
+        } elseif (isset($_POST["tente3Nuits"])) {
+            $this->_camion = "Du 01/07 au 03/07";
+        } else {
+            $this->_camion = "Pas de reservation";
+        }
+
+        if (isset($_POST["vanNuit1"])) {
+            $this->_tente = "Le 01/07";
+        } elseif (isset($_POST["vanNuit2"])) {
+            $this->_tente = "Le 02/07";
+        } elseif (isset($_POST["vanNuit3"])) {
+            $this->_tente = "Le 03/07";
+        } elseif (isset($_POST["van3Nuits"])) {
+            $this->_tente = "Du 01/07 au 03/07";
+        } else {
+            $this->_tente = "Pas de reservation";
+        }
+
+        if (isset($_POST['enfantsOui'])) {
+            $this->_enfants = "Oui";
+        } elseif (isset($_POST["enfants"])) {
+            $this->_enfants = "Non";
+        } else {
+            $this->_enfants = "Non";
+        }
+
+        if (empty($_POST['nombreCasquesEnfants'])) {
+            $this->_casques = 0;
+        }
+    }
+
+    // Methode transformation infos en ticket
     public function getObjectToTicket()
     {
         return [
@@ -360,9 +369,11 @@ class Reservation
             "enfants" => "Présence d'enfants : " . $this->_enfants,
             "casques" => "Nombre de casques : " . $this->_casques,
             "luge" => "Nombre de luges : " . $this->_luge,
-            "total" => $this->_total,
+            "total" => "Le total réglé est de : " . $this->_total . "€",
         ];
     }
+
+    // Methode créer id
     public function creerNouvelleId(): int
     {
         $datareservation = new Datareservation();
