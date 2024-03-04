@@ -38,11 +38,8 @@ class Reservation
         $this->setMail($mail);
         $this->setTel($tel);
         $this->setAdresse($adresse);
-        $this->setTotal($total);
-        $this->setCamionPrix(1);
-        $this->setTentePrix(1);
-        $this->setFormulePrix(1);
         $this->definirPrix();
+        $this->setTotal($total);
         $this->definirAffichage();
     }
 
@@ -140,7 +137,7 @@ class Reservation
     public function setId(int|string $id): void
     {
         if (is_string($id) && $id == "à créer") {
-            $this->_id = $this->creerNouvelleId();
+            $this->_id = rand(1, 1000);
         } else {
             $this->_id = $id;
         }
@@ -355,46 +352,46 @@ class Reservation
     {
         return [
             "id" =>  $this->_id,
-            "nom" => "Nom : " . $this->_nom,
-            "prenom" => "Prénom : " . $this->_prenom,
-            "mail" => "Mail : " . $this->_mail,
-            "tel" => "Téléphone : " . $this->_tel,
-            "adresse" => "Adresse : " . $this->_adresse,
-            "nombreReservation" => "Nombre de places : " . $this->_nombreReservation,
-            "tarifReduit" => "Tarif réduit : " . $this->_tarifReduit,
-            "formule" => "Choix de la formule : " . $this->_formule,
-            "date" => "Date : " . $this->_date,
-            "tente" => "Tente : " . $this->_tente,
-            "camion" => "Camion : " . $this->_camion,
-            "enfants" => "Présence d'enfants : " . $this->_enfants,
-            "casques" => "Nombre de casques : " . $this->_casques,
-            "luge" => "Nombre de luges : " . $this->_luge,
-            "total" => "Le total réglé est de : " . $this->_total . "€",
+            "nom" =>   $this->_nom,
+            "prenom" =>  $this->_prenom,
+            "mail" =>  $this->_mail,
+            "tel" =>  $this->_tel,
+            "adresse" =>  $this->_adresse,
+            "nombreReservation" =>  $this->_nombreReservation,
+            "tarifReduit" =>  $this->_tarifReduit,
+            "formule" =>  $this->_formule,
+            "date" =>  $this->_date,
+            "tente" =>  $this->_tente,
+            "camion" =>  $this->_camion,
+            "enfants" => $this->_enfants,
+            "casques" =>  $this->_casques,
+            "luge" =>  $this->_luge,
+            "total" =>  $this->_total . "€",
         ];
     }
 
     // Methode créer id
-    public function creerNouvelleId(): int
-    {
-        $datareservation = new Datareservation();
-        $reservations = $datareservation->getTicketR();
+    //     public function creerNouvelleId(): int
+    //     {
+    //         $datareservation = new Datareservation();
+    //         $reservations = $datareservation->getTicketR();
 
-        $IDs = [];
+    //         $IDs = [];
 
-        foreach ($reservations as $reservation) {
-            $IDs[] = $reservation->getId();
-        }
+    //         foreach ($reservations as $reservation) {
+    //             $IDs[] = $reservation->getId();
+    //         }
 
-        $i = 1;
-        $unique = false;
-        while ($unique === false) {
-            if (in_array($i, $IDs)) {
-                $i++;
-            } else {
-                $unique = true;
-            }
-        }
+    //         $i = 1;
+    //         $unique = false;
+    //         while ($unique === false) {
+    //             if (in_array($i, $IDs)) {
+    //                 $i++;
+    //             } else {
+    //                 $unique = true;
+    //             }
+    //         }
 
-        return $i;
-    }
+    //         return $i;
+    //     }
 }

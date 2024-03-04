@@ -10,6 +10,7 @@ final class DataReservation
     public function enregistrerTicketR(Reservation $reservation)
     {
         $fichier = fopen($this->_DataR, "ab");
+
         $retour = fputcsv($fichier, $reservation->getObjectToTicket());
         fclose($fichier);
         return $retour;

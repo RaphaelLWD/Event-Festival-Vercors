@@ -34,7 +34,7 @@ legend {
 }
 
 a {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-family: "PT Sans Narrow", sans-serif;
     font-weight: 700;
     font-size: 30px;
@@ -201,9 +201,10 @@ a {
     align-items: center;
 }
 
-.test {
+.ticketsAdmin {
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
     padding: 30px;
     box-shadow: 5px 5px 20px rgb(179, 179, 179);
+    margin: 20px 0;
 }

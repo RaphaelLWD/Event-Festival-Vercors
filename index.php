@@ -28,15 +28,15 @@ if (isset($_GET['erreur'])) {
     <div class="navBarre">
       <img class="logo" src="./Medias/logoVercors.png">
       <div class="navBouttons"><a href="./index.php">
-          Accueil
+          ACCUEIL
         </a>
       </div>
       <div class="navBouttons"><a href="./pageAdmin.php">
-          Admin
+          ADMIN
         </a>
       </div>
       <div class="navBouttons"><a href="./login.php">
-          Connexion
+          CONNEXION
         </a>
       </div>
     </div>
