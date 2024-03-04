@@ -1,2 +1,8 @@
-1,Dupont,Robert,test@test.com,0874121345,"rue Rivoli",1,,1,1,,,,,
-2,lanquette,Tonie,tonie.lanquette.simplon@gmail.com,0102030405,"13 rue papillon",3,,1,1,,,,,
+Id,Nom,Prénom,Mail,Téléphone,Adresse,Nombre de places,Tarif réduit,Choix de la formule,Date,Tente,Camion,Présence d'enfants,Nombre de casques,Nombre de luges,Total réglé
+892,Lanquette,Tonie,tonie.lanquette.simplon@gmail.com,0102030405,"13 rue papillon",1,Oui,"Pass 1 jour réduit","Pass pour le 01/07","Le 01/07","Le 01/07",Non,0,1,40€
+136,Lanquette,Tonie,tonie.lanquette.simplon@gmail.com,0102030405,"13 rue papillon",2,Non,"Pass 1 jour","Pass pour le 01/07","Le 01/07","Le 01/07",Oui,2,2,110€
+578,Lanquette,Tonie,tonie.lanquette.simplon@gmail.com,0102030405,"13 rue papillon",10,Non,"Pass 1 jour","Pass pour le 01/07","Le 01/07","Le 01/07",Non,0,10,550€
+479,khcgdcfvg,Tonie,tonie.lanquette.simplon@gmail.com,0102030405,"13 rue papillon",20,Non,"Pass 1 jour","Pass pour le 01/07","Le 01/07","Le 01/07",Non,0,20,1100€
+147,azerty,azerty,ever.morgenstern1@gmail.com,0102030405,"13 rue papillon",53,Non,"Pass 1 jour","Pass pour le 01/07","Le 01/07","Le 01/07",Non,0,53,2915€
+16,qsdf,qsdf,ever.morgenstern1@gmail.com,0102030405,"13 rue papillon",10,Non,"Pass 1 jour","Pass pour le 01/07","Le 01/07","Le 01/07",Non,0,01,505€
+990,fbdfhbdf,dfgdgdf,ever.morgenstern1@gmail.com,0102030405,"13 rue papillon",45,Non,"Pass 1 jour","Pass pour le 01/07","Le 01/07","Le 01/07",Non,0,54,2520€

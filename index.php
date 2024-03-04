@@ -25,7 +25,21 @@ if (isset($_GET['erreur'])) {
 </head>
 <header>
   <div class="bandeau">
-    <img class="logo" src="./Medias/logoVercors.png">
+    <div class="navBarre">
+      <img class="logo" src="./Medias/logoVercors.png">
+      <div class="navBouttons"><a href="./index.php">
+          ACCUEIL
+        </a>
+      </div>
+      <div class="navBouttons"><a href="./pageAdmin.php">
+          ADMIN
+        </a>
+      </div>
+      <div class="navBouttons"><a href="./login.php">
+          CONNEXION
+        </a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -248,7 +262,7 @@ if (isset($_GET['erreur'])) {
 
       <h3>Profitez de descentes en luge d'été à tarifs avantageux !</h3>
       <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
-      <input type="number" name="NombreLugesEte" id="NombreLugesEte">
+      <input type="number" name="NombreLugesEte" id="NombreLugesEte" min="0">
 
       <div id="boutonCoordonnees" type="submit" name="submit2" onclick="nextFieldset('coordonnees')">
         <p class="bouton">Suivant</p>
