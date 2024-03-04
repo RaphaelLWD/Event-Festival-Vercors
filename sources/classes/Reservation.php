@@ -39,9 +39,9 @@ class Reservation
         $this->setTel($tel);
         $this->setAdresse($adresse);
         $this->setTotal($total);
-        $this->setCamionPrix();
-        $this->setTentePrix($_tentePrix);
-        $this->setFormulePrix($formulePrix);
+        $this->setCamionPrix(1);
+        $this->setTentePrix(1);
+        $this->setFormulePrix(1);
         $this->definirPrix();
         $this->definirAffichage();
     }
